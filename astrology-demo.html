@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jyotish by Lakshmi — Vedic Astrology &amp; Numerology</title>
+    <meta
+      name="description"
+      content="Personalized Vedic astrology, numerology, and lucky number consultations by Lakshmi Lavanyah — 15+ years of experience, 500+ global clients."
+    />
+    <!-- Favicon: crescent moon symbol -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☽</text></svg>"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,34 +20,38 @@
       rel="stylesheet"
     />
     <style>
+      /* ─── DESIGN TOKENS ─────────────────────────────────────────── */
       :root {
         --primary: #f5a623;
         --primary-dark: #c47f00;
+        --primary-glow: rgba(245, 166, 35, 0.25);
         --secondary: #2e7d32;
         --secondary-dark: #1b5e20;
         --bg: #ffffff;
         --text: #1a1a1a;
+        --text-muted: #6b7280;
         --soft: #fffbf0;
-        --gray: #6b7280;
-        --light-gray: #f9fafb;
+        --soft-2: #fef9ec;
         --card-bg: #ffffff;
         --card-border: #eeeeee;
         --font-heading: "Cinzel", serif;
         --font-body: "Lato", sans-serif;
+        --radius-card: 0px;
+        --transition: all 0.25s ease;
       }
 
-      /* DARK THEME */
+      /* ─── DARK THEME ─────────────────────────────────────────────── */
       [data-theme="dark"] {
         --bg: #111111;
         --text: #f0f0f0;
+        --text-muted: #9ca3af;
         --soft: #1a1a1a;
-        --gray: #9ca3af;
-        --light-gray: #1a1a1a;
+        --soft-2: #181818;
         --card-bg: #1e1e1e;
         --card-border: #2a2a2a;
       }
       [data-theme="dark"] .nav {
-        background: #111;
+        background: rgba(17, 17, 17, 0.95);
         border-color: var(--primary);
       }
       [data-theme="dark"] .nav-links a {
@@ -58,25 +71,29 @@
         border-color: var(--card-border);
         color: #ddd;
       }
-      [data-theme="dark"] .service-card h3,
-      [data-theme="dark"] .price-card h3,
+      [data-theme="dark"] .service-card h3 {
+        color: #f0f0f0;
+      }
+      [data-theme="dark"] .price-card h3 {
+        color: #f0f0f0;
+      }
       [data-theme="dark"] .testimonial .name {
         color: var(--primary);
       }
       [data-theme="dark"] .section-header h2 {
-        color: var(--primary);
+        color: #f0f0f0;
       }
       [data-theme="dark"] .section-header .tag {
         color: var(--primary);
         border-color: var(--primary);
       }
-      [data-theme="dark"] .hero-img {
-        opacity: 0.06;
+      [data-theme="dark"] .hero {
+        background: #0d0d0d;
       }
       [data-theme="dark"] .hero-text h1 {
         color: #fff;
       }
-      [data-theme="dark"] .hero-text h1 span {
+      [data-theme="dark"] .hero-text h1 em {
         color: var(--primary);
       }
       [data-theme="dark"] .hero-label {
@@ -100,15 +117,11 @@
         background: var(--primary-dark);
         border-color: var(--primary-dark);
       }
-      [data-theme="dark"] .step-num {
-        border-color: #222;
-      }
-      [data-theme="dark"] .steps::before {
-        background: var(--primary);
-        opacity: 0.3;
-      }
       [data-theme="dark"] .step h4 {
         color: #eee;
+      }
+      [data-theme="dark"] .step p {
+        color: #999;
       }
       [data-theme="dark"] .stat-item .label {
         color: rgba(255, 255, 255, 0.6);
@@ -147,7 +160,7 @@
         border-color: #2a2a2a;
       }
       [data-theme="dark"] .cta-banner h2 {
-        color: var(--primary);
+        color: #f0f0f0;
       }
       [data-theme="dark"] .cta-banner p {
         color: #999;
@@ -183,6 +196,85 @@
       [data-theme="dark"] .gold-divider {
         background: var(--primary);
       }
+      [data-theme="dark"] .faq-section-inner {
+        background: transparent;
+      }
+      [data-theme="dark"] .faq-item {
+        background: #1a1a1a;
+        border-color: #2a2a2a;
+      }
+      [data-theme="dark"] .faq-item:hover {
+        border-color: #3a3a3a;
+      }
+      [data-theme="dark"] .faq-item.open {
+        background: #1e1e1e;
+        border-color: var(--primary);
+      }
+      [data-theme="dark"] .faq-q {
+        color: #f0f0f0;
+      }
+      [data-theme="dark"] .faq-q:hover {
+        color: var(--primary);
+      }
+      [data-theme="dark"] .faq-num {
+        background: #2a2a2a;
+        color: #555;
+      }
+      [data-theme="dark"] .faq-item.open .faq-num {
+        background: var(--primary);
+        color: #111;
+      }
+      [data-theme="dark"] .faq-a {
+        color: #999;
+        border-color: #2a2a2a;
+      }
+      [data-theme="dark"] .faq-cta-panel {
+        background: linear-gradient(160deg, #1a1a0a 0%, #111111 100%);
+        border-color: rgba(245, 166, 35, 0.15);
+      }
+      [data-theme="dark"] .faq-cta-panel h3 {
+        color: #f0f0f0;
+      }
+      [data-theme="dark"] .faq-cta-panel p {
+        color: #888;
+      }
+      [data-theme="dark"] .faq-cta-badge {
+        border-color: rgba(245, 166, 35, 0.2);
+      }
+      [data-theme="dark"] .media-bar {
+        background: #181818;
+        border-color: #2a2a2a;
+      }
+      [data-theme="dark"] .media-bar span {
+        color: #555;
+      }
+      [data-theme="dark"] .media-logo {
+        color: #444;
+      }
+      [data-theme="dark"] .social-proof {
+        background: rgba(245, 166, 35, 0.08);
+        border-color: rgba(245, 166, 35, 0.25);
+      }
+      [data-theme="dark"] .lucky-calc {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+      [data-theme="dark"] .lucky-result {
+        background: rgba(245, 166, 35, 0.1);
+        border-color: rgba(245, 166, 35, 0.25);
+      }
+      [data-theme="dark"] .step-num {
+        border-color: #222;
+      }
+      [data-theme="dark"] .steps::before {
+        background: var(--primary);
+        opacity: 0.4;
+      }
+      [data-theme="dark"] .footer-col h4 {
+        color: var(--primary);
+      }
+
+      /* ─── RESET ──────────────────────────────────────────────────── */
       * {
         margin: 0;
         padding: 0;
@@ -220,728 +312,9 @@
         padding: 0 24px;
       }
 
-      /* NAV */
-      .nav {
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        background: var(--bg);
-        border-bottom: 2px solid var(--primary);
-        padding: 18px 0;
-        transition: box-shadow 0.3s;
-      }
-      .nav.scrolled {
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
-      }
-      .nav .container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .nav-logo {
-        font-family: var(--font-heading);
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: var(--secondary);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .nav-logo span {
-        color: var(--primary);
-        font-size: 1.5rem;
-      }
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .nav-links a {
-        padding: 8px 20px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text);
-        transition: color 0.2s;
-      }
-      .nav-links a:hover,
-      .nav-links a.active {
-        color: var(--primary);
-      }
-      .nav-links .cta {
-        background: var(--primary);
-        color: var(--text);
-        font-weight: 700;
-        padding: 10px 28px;
-        border: none;
-        transition: background 0.2s;
-      }
-      .nav-links .cta:hover {
-        background: var(--primary-dark);
-      }
-      .menu-btn {
-        display: none;
-        background: none;
-        border: none;
-        font-size: 1.6rem;
-        color: var(--secondary);
-        cursor: pointer;
-      }
-
-      /* HERO */
-      .hero {
-        position: relative;
-        min-height: 92vh;
-        display: flex;
-        align-items: center;
-        background: var(--soft);
-        overflow: hidden;
-      }
-      .hero-img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.12;
-      }
-      .hero .container {
-        position: relative;
-        z-index: 2;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        gap: 60px;
-      }
-      .hero-text {
-        max-width: 560px;
-      }
-      .hero-label {
-        display: inline-block;
-        font-size: 0.75rem;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: var(--primary-dark);
-        border: 1.5px solid var(--primary);
-        padding: 6px 16px;
-        margin-bottom: 24px;
-      }
-      .hero-text h1 {
-        font-size: 3.4rem;
-        color: var(--secondary);
-        margin-bottom: 20px;
-        font-weight: 900;
-      }
-      .hero-text h1 span {
-        color: var(--primary);
-      }
-      .hero-text p {
-        font-size: 1.15rem;
-        color: var(--gray);
-        margin-bottom: 36px;
-        line-height: 1.8;
-      }
-      .hero-btns {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-      .btn {
-        display: inline-block;
-        padding: 14px 36px;
-        font-size: 0.95rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.25s;
-        border: 2px solid transparent;
-      }
-      .btn-gold {
-        background: var(--primary);
-        color: var(--text);
-        border-color: var(--primary);
-      }
-      .btn-gold:hover {
-        background: var(--primary-dark);
-        border-color: var(--primary-dark);
-      }
-      .btn-outline {
-        background: transparent;
-        color: var(--secondary);
-        border-color: var(--secondary);
-      }
-      .btn-outline:hover {
-        background: var(--secondary);
-        color: #fff;
-      }
-      .btn-white {
-        background: #fff;
-        color: var(--text);
-        border-color: #fff;
-      }
-      .btn-white:hover {
-        background: var(--primary);
-        border-color: var(--primary);
-      }
-      .btn-green {
-        background: var(--secondary);
-        color: #fff;
-        border-color: var(--secondary);
-      }
-      .btn-green:hover {
-        background: var(--secondary-dark);
-        border-color: var(--secondary-dark);
-      }
-      .hero-visual {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .hero-visual img {
-        width: 100%;
-        max-width: 480px;
-        height: auto;
-        object-fit: cover;
-      }
-
-      /* STATS BAR */
-      .stats-bar {
-        background: var(--secondary);
-        padding: 40px 0;
-      }
-      .stats-bar .container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 24px;
-        text-align: center;
-      }
-      .stat-item .num {
-        font-family: var(--font-heading);
-        font-size: 2.4rem;
-        font-weight: 700;
-        color: var(--primary);
-      }
-      .stat-item .label {
-        font-size: 0.85rem;
-        color: rgba(255, 255, 255, 0.7);
-        margin-top: 4px;
-      }
-
-      /* SECTIONS */
-      .section {
-        padding: 100px 0;
-      }
-      .section-header {
-        text-align: center;
-        margin-bottom: 64px;
-      }
-      .section-header .tag {
-        display: inline-block;
-        font-size: 0.7rem;
-        font-weight: 700;
-        letter-spacing: 2.5px;
-        text-transform: uppercase;
-        color: var(--secondary);
-        border-bottom: 2px solid var(--primary);
-        padding-bottom: 4px;
-        margin-bottom: 16px;
-      }
-      .section-header h2 {
-        font-size: 2.6rem;
-        color: var(--secondary);
-        font-weight: 700;
-      }
-      .section-header p {
-        margin-top: 12px;
-        font-size: 1.05rem;
-        color: var(--gray);
-        max-width: 540px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      /* SERVICES */
-      .services-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 40px;
-      }
-      .service-card {
-        text-align: center;
-        padding: 48px 32px;
-        border: 1px solid #eee;
-        background: #fff;
-        transition:
-          border-color 0.3s,
-          transform 0.3s;
-      }
-      .service-card:hover {
-        border-color: var(--primary);
-        transform: translateY(-4px);
-      }
-      .service-card img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        margin: 0 auto 24px;
-        border-radius: 50%;
-      }
-      .service-card h3 {
-        font-size: 1.2rem;
-        color: var(--secondary);
-        margin-bottom: 12px;
-      }
-      .service-card p {
-        font-size: 0.9rem;
-        color: var(--gray);
-        line-height: 1.7;
-      }
-
-      /* HOW IT WORKS */
-      .steps {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 32px;
-        position: relative;
-      }
-      .steps::before {
-        content: "";
-        position: absolute;
-        top: 36px;
-        left: 12%;
-        right: 12%;
-        height: 1px;
-        background: var(--primary);
-        opacity: 0.4;
-      }
-      .step {
-        text-align: center;
-        position: relative;
-      }
-      .step-num {
-        width: 72px;
-        height: 72px;
-        margin: 0 auto 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: var(--font-heading);
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: #fff;
-        background: var(--primary);
-        border: 4px solid var(--soft);
-        position: relative;
-        z-index: 2;
-      }
-      .step h4 {
-        font-size: 1rem;
-        color: var(--text);
-        margin-bottom: 6px;
-      }
-      .step p {
-        font-size: 0.82rem;
-        color: var(--gray);
-      }
-
-      /* LUCKY NUMBER */
-      .lucky {
-        background: var(--secondary);
-        color: #fff;
-        padding: 100px 0;
-        position: relative;
-        overflow: hidden;
-      }
-      .lucky-bg {
-        position: absolute;
-        inset: 0;
-        object-fit: cover;
-        opacity: 0.08;
-        mix-blend-mode: luminosity;
-      }
-      .lucky .container {
-        position: relative;
-        z-index: 2;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        gap: 60px;
-      }
-      .lucky-text h2 {
-        font-size: 2.6rem;
-        margin-bottom: 20px;
-        color: #fff;
-        font-weight: 700;
-      }
-      .lucky-text p {
-        font-size: 1.05rem;
-        opacity: 0.85;
-        line-height: 1.8;
-        margin-bottom: 36px;
-      }
-      .lucky-visual {
-        text-align: center;
-      }
-      .lucky-phone {
-        font-family: var(--font-heading);
-        font-size: 2.2rem;
-        letter-spacing: 4px;
-        color: #fff;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        padding: 40px 48px;
-      }
-      .lucky-phone .highlight {
-        color: var(--primary);
-      }
-      .lucky-phone .sub {
-        display: block;
-        font-family: "Lato", sans-serif;
-        font-size: 0.75rem;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        opacity: 0.5;
-        margin-top: 16px;
-      }
-
-      /* PRICING */
-      .pricing-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 32px;
-        align-items: start;
-      }
-      .price-card {
-        background: #fff;
-        border: 1px solid #eee;
-        padding: 48px 36px;
-        text-align: center;
-        position: relative;
-        transition:
-          border-color 0.3s,
-          transform 0.3s;
-      }
-      .price-card:hover {
-        border-color: var(--primary);
-        transform: translateY(-4px);
-      }
-      .price-card.featured {
-        border: 2px solid var(--primary);
-      }
-      .price-card .badge {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: var(--primary);
-        color: var(--text);
-        font-size: 0.7rem;
-        font-weight: 700;
-        padding: 6px 20px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-      }
-      .price-card h3 {
-        font-size: 1.1rem;
-        color: var(--secondary);
-        margin-bottom: 8px;
-      }
-      .price-card .amount {
-        font-family: var(--font-heading);
-        font-size: 2.8rem;
-        font-weight: 700;
-        color: var(--text);
-        margin: 16px 0 24px;
-      }
-      .price-card ul {
-        list-style: none;
-        text-align: left;
-        margin-bottom: 32px;
-      }
-      .price-card ul li {
-        padding: 10px 0;
-        font-size: 0.88rem;
-        color: var(--gray);
-        border-bottom: 1px solid #f5f5f5;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .price-card ul li::before {
-        content: "\2713";
-        color: var(--secondary);
-        font-weight: 700;
-        font-size: 0.8rem;
-      }
-
-      /* TESTIMONIALS */
-      .testimonials-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 32px;
-      }
-      .testimonial {
-        padding: 40px 32px;
-        border: 1px solid #eee;
-        background: #fff;
-        position: relative;
-      }
-      .testimonial .quote {
-        font-family: "Cinzel", serif;
-        font-size: 4rem;
-        color: var(--primary);
-        opacity: 0.2;
-        position: absolute;
-        top: 16px;
-        left: 24px;
-        line-height: 1;
-      }
-      .testimonial .stars {
-        color: var(--primary);
-        font-size: 1rem;
-        letter-spacing: 2px;
-        margin-bottom: 16px;
-      }
-      .testimonial p {
-        font-size: 0.9rem;
-        color: var(--gray);
-        font-style: italic;
-        line-height: 1.7;
-        margin-bottom: 20px;
-      }
-      .testimonial .author {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .testimonial .avatar {
-        width: 40px;
-        height: 40px;
-        background: var(--secondary);
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.8rem;
-        font-weight: 700;
-      }
-      .testimonial .name {
-        font-weight: 700;
-        color: var(--secondary);
-        font-size: 0.85rem;
-      }
-      .testimonial .loc {
-        font-size: 0.75rem;
-        color: var(--gray);
-      }
-
-      /* PAYMENT */
-      .payment-bar {
-        background: var(--primary);
-        padding: 20px 0;
-        text-align: center;
-      }
-      .payment-bar p {
-        font-weight: 700;
-        font-size: 0.9rem;
-        color: var(--text);
-        letter-spacing: 0.5px;
-      }
-
-      /* FOOTER */
-      .footer {
-        background: #0a0a0a;
-        color: #fff;
-        padding: 60px 0 32px;
-        text-align: center;
-      }
-      .footer-logo {
-        font-family: var(--font-heading);
-        font-size: 1.2rem;
-        color: var(--primary);
-        margin-bottom: 8px;
-      }
-      .footer-tagline {
-        font-size: 0.9rem;
-        color: rgba(255, 255, 255, 0.4);
-        margin-bottom: 32px;
-      }
-      .footer nav {
-        margin-bottom: 32px;
-      }
-      .footer nav a {
-        color: rgba(255, 255, 255, 0.4);
-        font-size: 0.85rem;
-        margin: 0 16px;
-        transition: color 0.2s;
-      }
-      .footer nav a:hover {
-        color: var(--primary);
-      }
-      .footer .copy {
-        font-size: 0.75rem;
-        color: rgba(255, 255, 255, 0.2);
-        padding-top: 24px;
-        border-top: 1px solid rgba(255, 255, 255, 0.06);
-      }
-
-      /* REVEAL */
-      .reveal {
-        opacity: 0;
-        transform: translateY(24px);
-        transition:
-          opacity 0.7s ease,
-          transform 0.7s ease;
-      }
-      .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* HERO ENTRANCE */
-      .hero-enter {
-        opacity: 0;
-        transform: translateY(30px);
-        transition:
-          opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-          transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      .hero-enter.show {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* GOLD DIVIDER */
-      .gold-divider {
-        width: 60px;
-        height: 2px;
-        background: var(--primary);
-        margin: 0 auto 20px;
-      }
-
-      /* SERVICE CARD IMAGE GLOW */
-      .service-card img {
-        transition: box-shadow 0.3s;
-      }
-      .service-card:hover img {
-        box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.25);
-      }
-
-      /* SHIMMER BUTTON */
-      .btn-shimmer {
-        position: relative;
-        overflow: hidden;
-      }
-      .btn-shimmer::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 60%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.35),
-          transparent
-        );
-        animation: shimmer 3s infinite;
-      }
-      @keyframes shimmer {
-        0% {
-          left: -100%;
-        }
-        100% {
-          left: 200%;
-        }
-      }
-
-      /* TRUST SECTION */
-      .trust-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 32px;
-        text-align: center;
-      }
-      .trust-item {
-        padding: 32px 16px;
-      }
-      .trust-icon {
-        width: 56px;
-        height: 56px;
-        margin: 0 auto 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.6rem;
-        color: var(--primary);
-        border: 2px solid var(--primary);
-      }
-      .trust-item h4 {
-        font-size: 0.95rem;
-        color: var(--secondary);
-        margin-bottom: 6px;
-      }
-      .trust-item p {
-        font-size: 0.8rem;
-        color: var(--gray);
-      }
-
-      /* CTA BANNER */
-      .cta-banner {
-        background: var(--soft);
-        padding: 80px 0;
-        text-align: center;
-        border-top: 1px solid #eee;
-        border-bottom: 1px solid #eee;
-      }
-      .cta-banner h2 {
-        font-size: 2.2rem;
-        color: var(--secondary);
-        margin-bottom: 12px;
-      }
-      .cta-banner p {
-        font-size: 1.05rem;
-        color: var(--gray);
-        margin-bottom: 32px;
-        max-width: 480px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      /* WHATSAPP FLOAT */
-      .wa-float {
-        position: fixed;
-        bottom: 28px;
-        right: 28px;
-        z-index: 90;
-        width: 56px;
-        height: 56px;
-        background: #25d366;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        color: #fff;
-        font-size: 1.6rem;
-        box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
-        transition:
-          transform 0.2s,
-          box-shadow 0.2s;
-      }
-      .wa-float:hover {
-        transform: scale(1.1);
-        box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
-      }
-      .wa-float svg {
-        width: 28px;
-        height: 28px;
-        fill: #fff;
-      }
-
-      /* TOOLBAR */
+      /* ─── TOOLBAR ────────────────────────────────────────────────── */
       .toolbar {
-        background: var(--light-gray);
+        background: #f9fafb;
         border-bottom: 1px solid #eee;
         padding: 10px 0;
         font-size: 0.8rem;
@@ -961,7 +334,7 @@
       }
       .toolbar label {
         font-weight: 600;
-        color: var(--gray);
+        color: var(--text-muted);
         font-size: 0.75rem;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -995,9 +368,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition:
-          background 0.2s,
-          color 0.2s;
+        transition: var(--transition);
       }
       #theme-toggle:hover {
         background: var(--primary);
@@ -1025,32 +396,1327 @@
         fill: #fff;
       }
 
-      @media (max-width: 600px) {
-        .toolbar .container {
-          justify-content: center;
+      /* ─── NAV ────────────────────────────────────────────────────── */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--bg);
+        border-bottom: 3px solid var(--primary);
+        padding: 16px 0;
+        transition:
+          box-shadow 0.3s,
+          background 0.3s;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+      .nav.scrolled {
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      }
+      .nav .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav-logo {
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--secondary);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .nav-logo .moon {
+        color: var(--primary);
+        font-size: 1.4rem;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .nav-links a {
+        padding: 8px 18px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text);
+        transition: color 0.2s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--primary);
+      }
+      .nav-links .cta {
+        background: var(--primary);
+        color: #fff;
+        font-weight: 700;
+        padding: 10px 26px;
+        border: 2px solid var(--primary);
+        transition:
+          background 0.2s,
+          transform 0.15s;
+      }
+      .nav-links .cta:hover {
+        background: var(--primary-dark);
+        border-color: var(--primary-dark);
+        transform: translateY(-1px);
+      }
+      .menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.6rem;
+        color: var(--secondary);
+        cursor: pointer;
+        padding: 4px;
+        line-height: 1;
+      }
+      /* Mobile nav dropdown — class-based */
+      .nav-links.nav-open {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        padding: 20px 24px;
+        border-bottom: 3px solid var(--primary);
+        z-index: 99;
+        animation: slideDown 0.2s ease;
+      }
+      .nav-links.nav-open a {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+      .nav-links.nav-open .cta {
+        text-align: center;
+        margin-top: 8px;
+      }
+      [data-theme="dark"] .nav-links.nav-open a {
+        border-color: rgba(255, 255, 255, 0.06);
+      }
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-8px);
         }
-        .toolbar-left {
-          justify-content: center;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
 
-      /* COUNTER ANIMATION */
+      /* ─── HERO ───────────────────────────────────────────────────── */
+      .hero {
+        position: relative;
+        min-height: 92vh;
+        display: flex;
+        align-items: center;
+        background: var(--soft);
+        overflow: hidden;
+      }
+      /* Star field: inline SVG data URI pattern */
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%23f5a623' opacity='0.35'/%3E%3Ccircle cx='120' cy='80' r='1' fill='%23f5a623' opacity='0.25'/%3E%3Ccircle cx='200' cy='30' r='2' fill='%23f5a623' opacity='0.2'/%3E%3Ccircle cx='320' cy='60' r='1.2' fill='%23f5a623' opacity='0.3'/%3E%3Ccircle cx='370' cy='120' r='1.5' fill='%23f5a623' opacity='0.2'/%3E%3Ccircle cx='60' cy='160' r='1' fill='%23f5a623' opacity='0.25'/%3E%3Ccircle cx='160' cy='200' r='1.8' fill='%23f5a623' opacity='0.15'/%3E%3Ccircle cx='280' cy='180' r='1' fill='%23f5a623' opacity='0.3'/%3E%3Ccircle cx='350' cy='260' r='1.5' fill='%23f5a623' opacity='0.2'/%3E%3Ccircle cx='90' cy='300' r='1.2' fill='%23f5a623' opacity='0.25'/%3E%3Ccircle cx='220' cy='340' r='1' fill='%23f5a623' opacity='0.2'/%3E%3Ccircle cx='310' cy='380' r='2' fill='%23f5a623' opacity='0.15'/%3E%3Ccircle cx='30' cy='380' r='1' fill='%23f5a623' opacity='0.3'/%3E%3Ccircle cx='380' cy='20' r='1.5' fill='%23f5a623' opacity='0.25'/%3E%3Ccircle cx='150' cy='120' r='1' fill='%23f5a623' opacity='0.2'/%3E%3Ccircle cx='260' cy='100' r='1.3' fill='%23f5a623' opacity='0.3'/%3E%3C/svg%3E");
+        background-size: 400px 400px;
+        opacity: 1;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .hero-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.07;
+        z-index: 0;
+      }
+      .hero .container {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 60px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+      .hero-text {
+        max-width: 560px;
+      }
+      .social-proof {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(245, 166, 35, 0.08);
+        border: 1px solid rgba(245, 166, 35, 0.3);
+        padding: 6px 14px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 16px;
+        letter-spacing: 0.5px;
+      }
+      .social-proof .stars {
+        color: var(--primary);
+        letter-spacing: 1px;
+      }
+      .hero-label {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--primary-dark);
+        border: 1.5px solid var(--primary);
+        padding: 6px 16px;
+        margin-bottom: 22px;
+      }
+      .hero-text h1 {
+        font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+        color: var(--text);
+        margin-bottom: 20px;
+        font-weight: 900;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+      .hero-text h1 em {
+        font-style: normal;
+        color: var(--primary);
+      }
+      .hero-text p {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        margin-bottom: 36px;
+        line-height: 1.8;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-block;
+        padding: 14px 36px;
+        font-size: 0.92rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: var(--transition);
+        border: 2px solid transparent;
+        font-family: var(--font-body);
+        letter-spacing: 0.3px;
+      }
+      .btn-gold {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-gold:hover {
+        background: var(--primary-dark);
+        border-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px var(--primary-glow);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--secondary);
+        border-color: var(--secondary);
+      }
+      .btn-outline:hover {
+        background: var(--secondary);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+      .btn-white {
+        background: #fff;
+        color: var(--text);
+        border-color: #fff;
+      }
+      .btn-white:hover {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+        transform: translateY(-2px);
+      }
+      .btn-green {
+        background: var(--secondary);
+        color: #fff;
+        border-color: var(--secondary);
+      }
+      .btn-green:hover {
+        background: var(--secondary-dark);
+        border-color: var(--secondary-dark);
+        transform: translateY(-2px);
+      }
+
+      /* Shimmer effect */
+      .btn-shimmer::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        animation: shimmer 3s infinite;
+      }
+      @keyframes shimmer {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 200%;
+        }
+      }
+
+      /* Hero visual: mandala */
+      .hero-visual {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .mandala-wrap {
+        position: relative;
+        width: 380px;
+        height: 380px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .mandala-wrap img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 50%;
+        position: relative;
+        z-index: 2;
+        border: 4px solid var(--primary);
+        box-shadow:
+          0 0 40px var(--primary-glow),
+          0 0 80px rgba(245, 166, 35, 0.1);
+      }
+      .mandala-ring {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 1px solid rgba(245, 166, 35, 0.2);
+        animation: rotateRing 40s linear infinite;
+      }
+      .mandala-ring:nth-child(2) {
+        inset: 20px;
+        border: 1px dashed rgba(245, 166, 35, 0.3);
+        animation-duration: 60s;
+        animation-direction: reverse;
+      }
+      @keyframes rotateRing {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .mandala-dot {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: var(--primary);
+        border-radius: 50%;
+        box-shadow: 0 0 8px var(--primary);
+      }
+      /* Position dots around the outer ring */
+      .mandala-dot:nth-child(3) {
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .mandala-dot:nth-child(4) {
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .mandala-dot:nth-child(5) {
+        left: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .mandala-dot:nth-child(6) {
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      /* Hero entrance */
+      .hero-enter {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .hero-enter.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ─── STATS BAR ──────────────────────────────────────────────── */
+      .stats-bar {
+        background: var(--secondary);
+        padding: 40px 0;
+      }
+      .stats-bar .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        text-align: center;
+      }
       .stat-item .num {
+        font-family: var(--font-heading);
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: var(--primary);
         font-variant-numeric: tabular-nums;
       }
-
-      @media (max-width: 900px) {
-        .trust-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
+      .stat-item .label {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: 4px;
       }
-      @media (max-width: 600px) {
-        .trust-grid {
+
+      /* ─── MEDIA BAR ──────────────────────────────────────────────── */
+      .media-bar {
+        background: #f9fafb;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        padding: 18px 0;
+      }
+      .media-bar .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        flex-wrap: wrap;
+      }
+      .media-bar span {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #bbb;
+      }
+      .media-logo {
+        font-family: var(--font-heading);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #ccc;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        transition: color 0.2s;
+      }
+      .media-logo:hover {
+        color: var(--primary);
+      }
+
+      /* ─── SECTIONS ───────────────────────────────────────────────── */
+      .section {
+        padding: 100px 0;
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 64px;
+      }
+      .section-header .tag {
+        display: inline-block;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--secondary);
+        border-bottom: 2px solid var(--primary);
+        padding-bottom: 4px;
+        margin-bottom: 16px;
+      }
+      .section-header h2 {
+        font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+        color: var(--text);
+        font-weight: 700;
+      }
+      .section-header p {
+        margin-top: 12px;
+        font-size: 1.05rem;
+        color: var(--text-muted);
+        max-width: 540px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .gold-divider {
+        width: 50px;
+        height: 3px;
+        background: var(--primary);
+        margin: 0 auto 20px;
+      }
+
+      /* ─── SERVICE CARDS ──────────────────────────────────────────── */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 36px;
+      }
+      .service-card {
+        text-align: center;
+        padding: 48px 32px 40px;
+        background: #fff;
+        border: 1px solid #eee;
+        border-top: 4px solid var(--primary);
+        transition:
+          border-color 0.3s,
+          transform 0.3s,
+          box-shadow 0.3s;
+        position: relative;
+      }
+      .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow:
+          0 12px 40px rgba(245, 166, 35, 0.15),
+          0 2px 8px rgba(0, 0, 0, 0.06);
+        border-color: #eee;
+        border-top-color: var(--primary);
+      }
+      .service-icon-wrap {
+        position: relative;
+        width: 88px;
+        height: 88px;
+        margin: 0 auto 24px;
+      }
+      .service-card img {
+        width: 88px;
+        height: 88px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition:
+          box-shadow 0.3s,
+          transform 0.3s;
+      }
+      .service-card:hover img {
+        box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.3);
+        transform: scale(1.04);
+      }
+      .service-card h3 {
+        font-size: 1.15rem;
+        color: var(--text);
+        margin-bottom: 12px;
+      }
+      .service-card p {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        line-height: 1.75;
+      }
+      .service-tag {
+        display: inline-block;
+        margin-top: 16px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--secondary);
+        border-bottom: 1px solid var(--secondary);
+        padding-bottom: 2px;
+      }
+
+      /* ─── HOW IT WORKS ───────────────────────────────────────────── */
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+        position: relative;
+      }
+      /* Dashed connector line */
+      .steps::before {
+        content: "";
+        position: absolute;
+        top: 36px;
+        left: 12%;
+        right: 12%;
+        height: 2px;
+        background: repeating-linear-gradient(
+          to right,
+          var(--primary) 0px,
+          var(--primary) 10px,
+          transparent 10px,
+          transparent 20px
+        );
+        opacity: 0.5;
+        z-index: 0;
+      }
+      .step {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+      .step-num {
+        width: 72px;
+        height: 72px;
+        margin: 0 auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        background: var(--primary);
+        border: 4px solid var(--soft);
+        position: relative;
+        z-index: 2;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+        border-radius: 50%;
+      }
+      .step:hover .step-num {
+        transform: scale(1.1);
+        box-shadow: 0 0 24px var(--primary-glow);
+      }
+      .step h4 {
+        font-size: 1rem;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .step p {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+      }
+      .step-emoji {
+        display: block;
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+      }
+
+      /* ─── LUCKY NUMBER ───────────────────────────────────────────── */
+      .lucky {
+        background: var(--secondary);
+        color: #fff;
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .lucky-bg {
+        position: absolute;
+        inset: 0;
+        object-fit: cover;
+        opacity: 0.06;
+        mix-blend-mode: luminosity;
+      }
+      .lucky .container {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 60px;
+      }
+      .lucky-text h2 {
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        margin-bottom: 20px;
+        color: #fff;
+        font-weight: 700;
+      }
+      .lucky-text p {
+        font-size: 1.05rem;
+        opacity: 0.85;
+        line-height: 1.8;
+        margin-bottom: 32px;
+      }
+      .lucky-visual {
+        text-align: center;
+      }
+      .lucky-phone {
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        letter-spacing: 4px;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 36px 40px;
+        margin-bottom: 32px;
+      }
+      .lucky-phone .highlight {
+        color: var(--primary);
+      }
+      .lucky-phone .sub {
+        display: block;
+        font-family: "Lato", sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        opacity: 0.5;
+        margin-top: 14px;
+      }
+      /* Lucky number calculator */
+      .lucky-calc {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 28px;
+        text-align: left;
+      }
+      .lucky-calc h4 {
+        font-family: var(--font-heading);
+        font-size: 0.9rem;
+        color: var(--primary);
+        margin-bottom: 6px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .lucky-calc p.hint {
+        font-size: 0.78rem;
+        opacity: 0.6;
+        margin-bottom: 16px;
+      }
+      .lucky-calc-input {
+        display: flex;
+        gap: 0;
+      }
+      .lucky-calc input {
+        flex: 1;
+        padding: 10px 14px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        font-size: 0.9rem;
+        font-family: var(--font-body);
+        outline: none;
+      }
+      .lucky-calc input::placeholder {
+        opacity: 0.45;
+      }
+      .lucky-calc input:focus {
+        border-color: var(--primary);
+      }
+      .lucky-calc button {
+        padding: 10px 20px;
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        font-weight: 700;
+        font-size: 0.82rem;
+        cursor: pointer;
+        font-family: var(--font-body);
+        transition: background 0.2s;
+        white-space: nowrap;
+      }
+      .lucky-calc button:hover {
+        background: var(--primary-dark);
+      }
+      .lucky-result {
+        margin-top: 14px;
+        padding: 14px 18px;
+        background: rgba(245, 166, 35, 0.1);
+        border: 1px solid rgba(245, 166, 35, 0.3);
+        display: none;
+      }
+      .lucky-result.show {
+        display: block;
+      }
+      .lucky-result .result-num {
+        font-family: var(--font-heading);
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: var(--primary);
+        line-height: 1;
+      }
+      .lucky-result .result-label {
+        font-size: 0.78rem;
+        opacity: 0.7;
+        margin-top: 4px;
+      }
+
+      /* ─── PRICING ────────────────────────────────────────────────── */
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        align-items: start;
+      }
+      .price-card {
+        background: #fff;
+        border: 1px solid #eee;
+        padding: 48px 36px;
+        text-align: center;
+        position: relative;
+        transition:
+          border-color 0.3s,
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .price-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(245, 166, 35, 0.12);
+      }
+      .price-card.featured {
+        border: 2px solid var(--primary);
+      }
+      .price-card.featured::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-dark),
+          var(--primary),
+          #ffc947
+        );
+      }
+      .price-card .badge {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--primary);
+        color: #fff;
+        font-size: 0.68rem;
+        font-weight: 700;
+        padding: 6px 20px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .price-card h3 {
+        font-size: 1.05rem;
+        color: var(--text-muted);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .price-card .amount {
+        font-family: var(--font-heading);
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--text);
+        margin: 12px 0 4px;
+        line-height: 1;
+      }
+      .price-card .amount-old {
+        font-size: 1rem;
+        color: #bbb;
+        text-decoration: line-through;
+        margin-bottom: 20px;
+        display: block;
+        font-family: var(--font-body);
+      }
+      .price-card ul {
+        list-style: none;
+        text-align: left;
+        margin-bottom: 32px;
+      }
+      .price-card ul li {
+        padding: 10px 0;
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        border-bottom: 1px solid #f5f5f5;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .price-card ul li::before {
+        content: "✓";
+        color: var(--secondary);
+        font-weight: 700;
+        font-size: 0.85rem;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+
+      /* ─── TESTIMONIALS ───────────────────────────────────────────── */
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+      .testimonial {
+        padding: 36px 32px;
+        border: 1px solid #eee;
+        background: #fff;
+        border-top: 3px solid var(--primary);
+        position: relative;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .testimonial:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 32px rgba(0, 0, 0, 0.06);
+      }
+      .testimonial .quote {
+        font-family: "Cinzel", serif;
+        font-size: 4rem;
+        color: var(--primary);
+        opacity: 0.15;
+        position: absolute;
+        top: 12px;
+        left: 20px;
+        line-height: 1;
+      }
+      .testimonial .stars {
+        color: var(--primary);
+        font-size: 1rem;
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+      }
+      .testimonial p {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        font-style: italic;
+        line-height: 1.75;
+        margin-bottom: 20px;
+      }
+      .testimonial .author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .testimonial .avatar {
+        width: 42px;
+        height: 42px;
+        background: var(--secondary);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.78rem;
+        font-weight: 700;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .testimonial .name {
+        font-weight: 700;
+        color: var(--text);
+        font-size: 0.85rem;
+      }
+      .testimonial .loc {
+        font-size: 0.74rem;
+        color: var(--text-muted);
+      }
+
+      /* ─── TRUST SECTION ──────────────────────────────────────────── */
+      .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+        text-align: center;
+      }
+      .trust-item {
+        padding: 32px 16px;
+        transition: transform 0.25s;
+      }
+      .trust-item:hover {
+        transform: translateY(-4px);
+      }
+      .trust-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        border-radius: 50%;
+        background: rgba(245, 166, 35, 0.05);
+        transition:
+          background 0.25s,
+          transform 0.25s;
+      }
+      .trust-item:hover .trust-icon {
+        background: rgba(245, 166, 35, 0.12);
+        transform: scale(1.08);
+      }
+      .trust-item h4 {
+        font-size: 0.95rem;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .trust-item p {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      /* ─── FAQ SECTION ────────────────────────────────────────────── */
+      .faq-section {
+        background: var(--soft);
+      }
+      .faq-layout {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 48px;
+        align-items: start;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .faq-item {
+        background: #fff;
+        border: 1px solid #ebebeb;
+        border-left: 4px solid transparent;
+        transition:
+          border-color 0.25s,
+          box-shadow 0.25s,
+          background 0.2s;
+        overflow: hidden;
+      }
+      .faq-item:hover {
+        border-color: #e0e0e0;
+        border-left-color: rgba(245, 166, 35, 0.4);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      }
+      .faq-item.open {
+        border-left-color: var(--primary);
+        box-shadow: 0 6px 28px rgba(245, 166, 35, 0.1);
+      }
+      .faq-q {
+        width: 100%;
+        background: none;
+        border: none;
+        text-align: left;
+        padding: 20px 22px;
+        font-family: var(--font-heading);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--text);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        transition: color 0.2s;
+      }
+      .faq-q:hover {
+        color: var(--primary);
+      }
+      .faq-num {
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        background: #f5f5f5;
+        color: #aaa;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-body);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0;
+        transition:
+          background 0.25s,
+          color 0.25s;
+      }
+      .faq-item.open .faq-num {
+        background: var(--primary);
+        color: #fff;
+      }
+      .faq-q-text {
+        flex: 1;
+      }
+      .faq-icon {
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        border: 1.5px solid #ddd;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        color: var(--primary);
+        font-family: var(--font-body);
+        font-weight: 400;
+        transition:
+          transform 0.3s,
+          border-color 0.25s,
+          background 0.25s;
+      }
+      .faq-item.open .faq-icon {
+        transform: rotate(45deg);
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #fff;
+      }
+      .faq-item.open .faq-q {
+        color: var(--primary);
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 0.91rem;
+        color: var(--text-muted);
+        line-height: 1.85;
+        border-top: 1px solid transparent;
+      }
+      .faq-item.open .faq-a {
+        max-height: 320px;
+        border-top-color: #f0f0f0;
+      }
+      .faq-a-inner {
+        padding: 16px 22px 22px 64px;
+      }
+      /* CTA panel */
+      .faq-cta-panel {
+        background: linear-gradient(160deg, #fffbea 0%, #fff9ef 100%);
+        border: 1px solid rgba(245, 166, 35, 0.2);
+        padding: 36px 28px;
+        position: sticky;
+        top: 100px;
+        text-align: center;
+      }
+      .faq-cta-badge {
+        display: inline-block;
+        font-size: 2rem;
+        margin-bottom: 16px;
+        width: 64px;
+        height: 64px;
+        border: 2px solid rgba(245, 166, 35, 0.3);
+        border-radius: 50%;
+        line-height: 60px;
+      }
+      .faq-cta-panel h3 {
+        font-size: 1.2rem;
+        color: var(--text);
+        margin-bottom: 10px;
+        line-height: 1.3;
+      }
+      .faq-cta-panel p {
+        font-size: 0.86rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: 24px;
+      }
+      .faq-cta-panel .btn {
+        width: 100%;
+        text-align: center;
+        display: block;
+      }
+      .faq-cta-panel .faq-meta {
+        margin-top: 14px;
+        font-size: 0.74rem;
+        color: var(--text-muted);
+        opacity: 0.7;
+      }
+      @media (max-width: 900px) {
+        .faq-layout {
           grid-template-columns: 1fr;
         }
+        .faq-cta-panel {
+          position: static;
+        }
+        .faq-a-inner {
+          padding-left: 22px;
+        }
       }
 
-      /* RESPONSIVE */
+      /* ─── CTA BANNER ─────────────────────────────────────────────── */
+      .cta-banner {
+        background: var(--soft-2);
+        padding: 80px 0;
+        text-align: center;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+      }
+      .cta-banner h2 {
+        font-size: clamp(1.7rem, 3vw, 2.2rem);
+        color: var(--text);
+        margin-bottom: 12px;
+      }
+      .cta-banner p {
+        font-size: 1.05rem;
+        color: var(--text-muted);
+        margin-bottom: 32px;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* ─── PAYMENT BAR ────────────────────────────────────────────── */
+      .payment-bar {
+        background: var(--primary);
+        padding: 18px 0;
+        text-align: center;
+      }
+      .payment-bar p {
+        font-weight: 700;
+        font-size: 0.88rem;
+        color: #fff;
+        letter-spacing: 0.5px;
+      }
+      .payment-icons {
+        display: inline-flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .pay-icon {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 4px 10px;
+        letter-spacing: 0.5px;
+      }
+
+      /* ─── FOOTER ─────────────────────────────────────────────────── */
+      .footer {
+        background: #0a0a0a;
+        color: #fff;
+        padding: 64px 0 32px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 48px;
+      }
+      .footer-logo {
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        color: var(--primary);
+        margin-bottom: 10px;
+      }
+      .footer-tagline {
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.35);
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+      .footer-wa {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #25d366;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        transition: background 0.2s;
+      }
+      .footer-wa:hover {
+        background: #1da851;
+      }
+      .footer-wa svg {
+        width: 16px;
+        height: 16px;
+        fill: #fff;
+      }
+      .footer-col h4 {
+        font-family: var(--font-heading);
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--primary);
+        margin-bottom: 18px;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col ul li {
+        margin-bottom: 10px;
+      }
+      .footer-col ul li a {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.88rem;
+        transition: color 0.2s;
+      }
+      .footer-col ul li a:hover {
+        color: var(--primary);
+      }
+      .footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .footer-bottom .copy {
+        font-size: 0.74rem;
+        color: rgba(255, 255, 255, 0.2);
+      }
+
+      /* ─── WHATSAPP FLOAT ─────────────────────────────────────────── */
+      .wa-float {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        z-index: 90;
+        width: 56px;
+        height: 56px;
+        background: #25d366;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 1.6rem;
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .wa-float:hover {
+        transform: scale(1.12);
+        box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+      }
+      .wa-float svg {
+        width: 28px;
+        height: 28px;
+        fill: #fff;
+      }
+
+      /* ─── SCROLL REVEAL ──────────────────────────────────────────── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ─── RESPONSIVE ─────────────────────────────────────────────── */
+      @media (max-width: 1024px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
       @media (max-width: 900px) {
         .hero .container {
           grid-template-columns: 1fr;
@@ -1083,17 +1749,21 @@
           grid-template-columns: 1fr;
           text-align: center;
         }
+        .lucky-calc {
+          text-align: left;
+        }
+        .trust-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
         .nav-links {
           display: none;
         }
         .menu-btn {
           display: block;
         }
-        .hero-text h1 {
-          font-size: 2.4rem;
-        }
-        .section-header h2 {
-          font-size: 2rem;
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
         }
       }
       @media (max-width: 600px) {
@@ -1102,6 +1772,22 @@
         }
         .steps {
           grid-template-columns: 1fr;
+        }
+        .trust-grid {
+          grid-template-columns: 1fr;
+        }
+        .media-bar .container {
+          gap: 16px;
+        }
+        .footer-bottom {
+          justify-content: center;
+          text-align: center;
+        }
+        .toolbar .container {
+          justify-content: center;
+        }
+        .toolbar-left {
+          justify-content: center;
         }
       }
     </style>
@@ -1125,7 +1811,7 @@
           </div>
         </div>
         <div class="toolbar-right">
-          <!-- PLACEHOLDER -->
+          <!-- PLACEHOLDER: Replace 919999999999 with client's WhatsApp number -->
           <a
             href="https://wa.me/919999999999"
             target="_blank"
@@ -1147,17 +1833,23 @@
     <!-- NAV -->
     <header class="nav" id="navbar">
       <div class="container">
-        <a href="#home" class="nav-logo"
-          ><span>&#9789;</span> Jyotish by Lakshmi</a
-        >
+        <a href="#home" class="nav-logo">
+          <span class="moon">&#9789;</span> Jyotish by Lakshmi
+        </a>
         <nav class="nav-links" id="nav-links">
           <a href="#home" class="active">Home</a>
           <a href="#services">Services</a>
           <a href="#how-it-works">How It Works</a>
           <a href="#testimonials">Reviews</a>
+          <a href="#faq">FAQ</a>
           <a href="#book" class="cta btn">Book Now</a>
         </nav>
-        <button class="menu-btn" id="menu-btn" aria-label="Menu">
+        <button
+          class="menu-btn"
+          id="menu-btn"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
           &#9776;
         </button>
       </div>
@@ -1168,17 +1860,21 @@
       <img src="images/hero-bg.png" alt="" class="hero-img" />
       <div class="container">
         <div class="hero-text">
-          <div class="hero-label hero-enter" style="transition-delay: 0.1s">
+          <div class="social-proof hero-enter" style="transition-delay: 0.05s">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            4.9/5 &nbsp;&bull;&nbsp; 500+ global clients
+          </div>
+          <div class="hero-label hero-enter" style="transition-delay: 0.15s">
             Vedic Astrology &bull; Numerology &bull; Birth Chart Readings
           </div>
-          <h1 class="hero-enter" style="transition-delay: 0.25s">
-            Unlock the Secrets of Your <span>Stars</span>
+          <h1 class="hero-enter" style="transition-delay: 0.28s">
+            Unlock the Secrets<br />of Your <em>Stars</em>
           </h1>
-          <p class="hero-enter" style="transition-delay: 0.4s">
+          <p class="hero-enter" style="transition-delay: 0.42s">
             Personalized cosmic guidance rooted in 5,000 years of Vedic
             tradition. Discover your destiny through ancient planetary wisdom.
           </p>
-          <div class="hero-btns hero-enter" style="transition-delay: 0.55s">
+          <div class="hero-btns hero-enter" style="transition-delay: 0.56s">
             <a href="#book" class="btn btn-gold btn-shimmer"
               >Book Consultation</a
             >
@@ -1186,10 +1882,19 @@
           </div>
         </div>
         <div class="hero-visual">
-          <img
-            src="images/hero-portrait.png"
-            alt="Lakshmi preparing a Vedic birth chart reading"
-          />
+          <!-- Decorative mandala with portrait -->
+          <div class="mandala-wrap">
+            <div class="mandala-ring"></div>
+            <div class="mandala-ring"></div>
+            <div class="mandala-dot"></div>
+            <div class="mandala-dot"></div>
+            <div class="mandala-dot"></div>
+            <div class="mandala-dot"></div>
+            <img
+              src="images/hero-portrait.png"
+              alt="Lakshmi Lavanyah — Vedic Astrologer"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -1216,15 +1921,24 @@
       </div>
     </div>
 
+    <!-- MEDIA / AS FEATURED IN -->
+    <div class="media-bar">
+      <div class="container">
+        <span>As seen in</span>
+        <!-- PLACEHOLDER: Replace with actual media mentions -->
+        <span class="media-logo">Times of India</span>
+        <span class="media-logo">Dainik Bhaskar</span>
+        <span class="media-logo">Yahoo News</span>
+        <span class="media-logo">DNA India</span>
+      </div>
+    </div>
+
     <!-- SERVICES -->
-    <section
-      class="section"
-      id="services"
-      style="background: var(--light-gray)"
-    >
+    <section class="section" id="services" style="background: var(--soft)">
       <div class="container">
         <div class="section-header">
           <div class="tag">Our Expertise</div>
+          <div class="gold-divider"></div>
           <h2>What We Offer</h2>
           <p>
             Ancient wisdom meets modern guidance for every aspect of your life
@@ -1232,38 +1946,49 @@
         </div>
         <div class="services-grid">
           <div class="service-card reveal">
-            <img
-              src="images/service-vedic.png"
-              alt="Vedic Astrology Birth Chart"
-            />
+            <div class="service-icon-wrap">
+              <img
+                src="images/service-vedic.png"
+                alt="Vedic Astrology Birth Chart"
+              />
+            </div>
             <h3>Vedic Astrology</h3>
             <p>
-              Birth chart analysis, natal chart readings, life predictions based
-              on your horoscope. Understand planetary positions and their
-              influence on your destiny.
+              Birth chart analysis, natal chart readings, and life predictions
+              based on your Jathakam. Understand how planetary positions govern
+              your destiny.
             </p>
+            <span class="service-tag">Learn More →</span>
           </div>
           <div class="service-card reveal">
-            <img
-              src="images/service-numerology.png"
-              alt="Sacred numerology chart"
-            />
+            <div class="service-icon-wrap">
+              <img
+                src="images/service-numerology.png"
+                alt="Sacred numerology chart"
+              />
+            </div>
             <h3>Numerology</h3>
             <p>
-              Name analysis, life path number, destiny number. Discover hidden
-              vibrations in your name and birth date that shape your journey.
+              Name analysis, life path number, destiny number. Discover the
+              hidden vibrations in your name and birth date that silently shape
+              your journey.
             </p>
+            <span class="service-tag">Learn More →</span>
           </div>
           <div class="service-card reveal">
-            <img
-              src="images/service-lucky.png"
-              alt="Lucky number cosmic phone"
-            />
+            <div class="service-icon-wrap">
+              <img
+                src="images/service-lucky.png"
+                alt="Lucky number cosmic phone"
+              />
+            </div>
             <h3>Lucky Number Consultation</h3>
             <p>
-              Best mobile and bank account numbers based on your birth chart and
-              ruling planet. Align your daily numbers with cosmic energy.
+              The most auspicious phone and bank account numbers based on your
+              birth chart and ruling planet. Align your daily numbers with
+              cosmic energy.
             </p>
+            <span class="service-tag">Learn More →</span>
           </div>
         </div>
       </div>
@@ -1274,29 +1999,34 @@
       <div class="container">
         <div class="section-header">
           <div class="tag">Simple Process</div>
+          <div class="gold-divider"></div>
           <h2>How It Works</h2>
-          <p>Four easy steps to unlock your cosmic guidance</p>
+          <p>Four easy steps to unlock your personalized cosmic guidance</p>
         </div>
         <div class="steps reveal">
           <div class="step">
             <div class="step-num">1</div>
+            <span class="step-emoji">📋</span>
             <h4>Share Your Details</h4>
             <p>Date, time &amp; place of birth</p>
           </div>
           <div class="step">
             <div class="step-num">2</div>
+            <span class="step-emoji">🔭</span>
             <h4>Birth Chart Analysis</h4>
-            <p>Deep planetary study</p>
+            <p>Deep planetary study &amp; Jathakam reading</p>
           </div>
           <div class="step">
             <div class="step-num">3</div>
+            <span class="step-emoji">📄</span>
             <h4>Personalized Report</h4>
-            <p>Detailed PDF delivered</p>
+            <p>Detailed PDF delivered to your inbox</p>
           </div>
           <div class="step">
             <div class="step-num">4</div>
+            <span class="step-emoji">✅</span>
             <h4>Secure Payment</h4>
-            <p>Pay only when satisfied</p>
+            <p>Pay only after you're completely satisfied</p>
           </div>
         </div>
       </div>
@@ -1329,32 +2059,59 @@
               >Your Auspicious Number &bull; Chart Verified</span
             >
           </div>
+          <!-- Lucky number mini-calculator -->
+          <div class="lucky-calc">
+            <h4>Try the Name Calculator</h4>
+            <p class="hint">
+              Enter your full name to discover your numerology number
+            </p>
+            <div class="lucky-calc-input">
+              <input
+                type="text"
+                id="calc-name"
+                placeholder="Enter your full name…"
+                maxlength="80"
+                autocomplete="off"
+              />
+              <button id="calc-btn">Calculate</button>
+            </div>
+            <div class="lucky-result" id="lucky-result">
+              <div class="result-num" id="result-num"></div>
+              <div class="result-label" id="result-label"></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- PRICING -->
-    <section class="section" id="book" style="background: var(--light-gray)">
+    <section class="section" id="book" style="background: var(--soft)">
       <div class="container">
         <div class="section-header">
           <div class="tag">Pricing</div>
+          <div class="gold-divider"></div>
           <h2>Choose Your Consultation</h2>
-          <p>Transparent pricing. No hidden charges.</p>
+          <p>
+            Transparent pricing. No hidden charges. Pay only when satisfied.
+          </p>
         </div>
         <div class="pricing-grid">
           <div class="price-card reveal">
             <h3>Basic Report</h3>
             <div class="amount">$29</div>
+            <span class="amount-old">$49</span>
             <ul>
               <li>Written Birth Chart PDF</li>
               <li>3 key life predictions</li>
-              <li>Email delivery in 48hrs</li>
+              <li>Email delivery within 48 hrs</li>
               <li>One follow-up question</li>
             </ul>
             <a
-              href="#"
+              href="https://wa.me/919999999999?text=Hi%2C%20I'd%20like%20to%20book%20the%20Basic%20Report"
+              target="_blank"
+              rel="noopener noreferrer"
               class="btn btn-green"
-              style="width: 100%; text-align: center"
+              style="width: 100%; text-align: center; display: block"
               >Book Now</a
             >
           </div>
@@ -1362,22 +2119,26 @@
             <div class="badge">Most Popular</div>
             <h3>Full Consultation</h3>
             <div class="amount">$79</div>
+            <span class="amount-old">$120</span>
             <ul>
-              <li>45-min video call</li>
+              <li>45-min video call with Lakshmi</li>
               <li>Full natal chart PDF report</li>
-              <li>Lucky number included</li>
-              <li>7-day email/WhatsApp support</li>
+              <li>Lucky number analysis included</li>
+              <li>7-day WhatsApp support</li>
             </ul>
             <a
-              href="#"
-              class="btn btn-gold"
-              style="width: 100%; text-align: center"
+              href="https://wa.me/919999999999?text=Hi%2C%20I'd%20like%20to%20book%20the%20Full%20Consultation"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-gold btn-shimmer"
+              style="width: 100%; text-align: center; display: block"
               >Book Now</a
             >
           </div>
           <div class="price-card reveal">
             <h3>Premium Package</h3>
             <div class="amount">$149</div>
+            <span class="amount-old">$200</span>
             <ul>
               <li>60-min deep-dive video call</li>
               <li>Full report + yearly forecast</li>
@@ -1385,9 +2146,11 @@
               <li>30-day ongoing support</li>
             </ul>
             <a
-              href="#"
+              href="https://wa.me/919999999999?text=Hi%2C%20I'd%20like%20to%20book%20the%20Premium%20Package"
+              target="_blank"
+              rel="noopener noreferrer"
               class="btn btn-green"
-              style="width: 100%; text-align: center"
+              style="width: 100%; text-align: center; display: block"
               >Book Now</a
             >
           </div>
@@ -1396,16 +2159,16 @@
     </section>
 
     <!-- TESTIMONIALS -->
-    <!-- PLACEHOLDER -->
     <section class="section" id="testimonials">
       <div class="container">
         <div class="section-header">
           <div class="tag">Testimonials</div>
+          <div class="gold-divider"></div>
           <h2>What Our Clients Say</h2>
           <p>Real experiences from people whose lives were transformed</p>
         </div>
         <div class="testimonials-grid">
-          <!-- PLACEHOLDER -->
+          <!-- PLACEHOLDER: Replace with real client testimonials -->
           <div class="testimonial reveal">
             <div class="quote">&ldquo;</div>
             <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -1465,6 +2228,7 @@
       <div class="container">
         <div class="section-header">
           <div class="tag">Why Choose Us</div>
+          <div class="gold-divider"></div>
           <h2>Your Trust, Our Priority</h2>
         </div>
         <div class="trust-grid">
@@ -1487,9 +2251,167 @@
             <div class="trust-icon">&#127758;</div>
             <h4>Global Reach</h4>
             <p>
-              Serving clients in US, UK, Australia, Canada and 20+ countries via
-              video call
+              Serving clients in the US, UK, Australia, Canada &amp; 20+
+              countries via video call
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <div class="tag">Common Questions</div>
+          <div class="gold-divider"></div>
+          <h2>Frequently Asked Questions</h2>
+          <p>Everything you need to know before booking your reading</p>
+        </div>
+        <div class="faq-layout">
+          <!-- Accordion -->
+          <div class="faq-list">
+            <div class="faq-item reveal">
+              <button class="faq-q" aria-expanded="false">
+                <span class="faq-num">01</span>
+                <span class="faq-q-text"
+                  >How accurate are Vedic astrology predictions?</span
+                >
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-a">
+                <div class="faq-a-inner">
+                  Vedic astrology is a precise system refined over 5,000 years.
+                  Accuracy depends on having the correct birth time, date, and
+                  place. We use the Parashari system with divisional charts,
+                  which gives significantly more depth than Western astrology.
+                  <strong
+                    >98% of our clients report the readings as highly
+                    accurate</strong
+                  >
+                  or better than expected.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" aria-expanded="false">
+                <span class="faq-num">02</span>
+                <span class="faq-q-text"
+                  >Can I get a consultation from outside India?</span
+                >
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-a">
+                <div class="faq-a-inner">
+                  Absolutely. All consultations are conducted via Zoom or Google
+                  Meet and are available to clients worldwide. We serve clients
+                  across the US, UK, Canada, Australia, UAE, Singapore, and many
+                  more countries. Time zones are fully accommodated &mdash; we
+                  find a slot that works for you.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" aria-expanded="false">
+                <span class="faq-num">03</span>
+                <span class="faq-q-text"
+                  >Is my personal and birth information kept private?</span
+                >
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-a">
+                <div class="faq-a-inner">
+                  <strong>100% confidential.</strong> Your name, birth details,
+                  and the content of your reading are never shared, sold, or
+                  discussed with any third party. All data is used solely for
+                  your consultation and archived securely. We take privacy
+                  extremely seriously.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" aria-expanded="false">
+                <span class="faq-num">04</span>
+                <span class="faq-q-text"
+                  >What if I don't know my exact birth time?</span
+                >
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-a">
+                <div class="faq-a-inner">
+                  We can work with an approximate time or use a birth time
+                  rectification process to narrow it down. While an exact birth
+                  time (to the minute) gives the most precise results, we have
+                  extensive experience creating accurate readings even when
+                  clients have only a range. Let us know during booking and
+                  we'll guide you through the process.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item reveal">
+              <button class="faq-q" aria-expanded="false">
+                <span class="faq-num">05</span>
+                <span class="faq-q-text">When and how do I pay?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-a">
+                <div class="faq-a-inner">
+                  Payment is requested after the initial consultation &mdash;
+                  you pay only once you're satisfied with the service direction.
+                  We accept
+                  <strong
+                    >Stripe, PayPal, Wise, UPI, Apple Pay, and Google
+                    Pay.</strong
+                  >
+                  All transactions are secure and encrypted. No hidden charges,
+                  ever.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- CTA Side Panel -->
+          <div class="faq-cta-panel reveal">
+            <div class="faq-cta-badge">&#9789;</div>
+            <h3>Still have questions?</h3>
+            <p>
+              Reach out directly on WhatsApp &mdash; Lakshmi personally responds
+              to every message within a few hours.
+            </p>
+            <!-- PLACEHOLDER: Replace number -->
+            <a
+              href="https://wa.me/919999999999?text=Hi%2C%20I%20have%20a%20question%20about%20your%20consultation"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-green"
+              >&#128172; Ask on WhatsApp</a
+            >
+            <div class="faq-meta">Typical response time: under 2 hours</div>
+            <div
+              style="
+                margin-top: 28px;
+                padding-top: 24px;
+                border-top: 1px solid rgba(0, 0, 0, 0.07);
+              "
+            >
+              <div
+                style="
+                  font-size: 0.72rem;
+                  font-weight: 700;
+                  letter-spacing: 2px;
+                  text-transform: uppercase;
+                  color: var(--text-muted);
+                  margin-bottom: 12px;
+                "
+              >
+                Or book directly
+              </div>
+              <a
+                href="#book"
+                class="btn btn-gold btn-shimmer"
+                style="display: block; text-align: center"
+                >Book a Reading</a
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -1502,7 +2424,7 @@
         <h2>Ready to Discover Your Destiny?</h2>
         <p>
           Book a personalized consultation today and let the stars guide your
-          path forward.
+          path forward. Limited slots available each month.
         </p>
         <a href="#book" class="btn btn-gold btn-shimmer"
           >Book Your Reading Now</a
@@ -1512,40 +2434,77 @@
 
     <!-- PAYMENT BANNER -->
     <div class="payment-bar">
-      <p>
-        Secure payments worldwide &mdash; Stripe &bull; PayPal &bull; Wise
-        &bull; Apple Pay &bull; Google Pay
-      </p>
+      <div class="container">
+        <div class="payment-icons">
+          <span class="pay-icon">💳 Stripe</span>
+          <span class="pay-icon">🅿 PayPal</span>
+          <span class="pay-icon">💱 Wise</span>
+          <span class="pay-icon">🍎 Apple Pay</span>
+          <span class="pay-icon">G Google Pay</span>
+          <span class="pay-icon">🇮🇳 UPI</span>
+        </div>
+      </div>
     </div>
 
     <!-- FOOTER -->
     <footer class="footer">
       <div class="container">
-        <div class="footer-logo">&#9789; Jyotish by Lakshmi</div>
-        <div class="footer-tagline">
-          Guided by the stars. Grounded in tradition.
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo">&#9789; Jyotish by Lakshmi</div>
+            <div class="footer-tagline">
+              Guided by the stars. Grounded in tradition.<br />
+              15+ years of Vedic astrology &amp; numerology practice.
+            </div>
+            <!-- PLACEHOLDER: Replace with client WhatsApp number -->
+            <a
+              href="https://wa.me/919999999999"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-wa"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
+              Chat on WhatsApp
+            </a>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#book">Pricing</a></li>
+              <li><a href="#testimonials">Reviews</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#services">Vedic Astrology</a></li>
+              <li><a href="#services">Numerology</a></li>
+              <li><a href="#lucky-number">Lucky Number Consultation</a></li>
+              <li><a href="#book">Book a Reading</a></li>
+            </ul>
+          </div>
         </div>
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#services">Services</a>
-          <a href="#how-it-works">How It Works</a>
-          <a href="#book">Book Now</a>
-          <!-- PLACEHOLDER -->
-          <a
-            href="https://wa.me/919999999999"
-            target="_blank"
-            rel="noopener noreferrer"
-            >WhatsApp</a
-          >
-        </nav>
-        <div class="copy">
-          &copy; 2026 Jyotish by Lakshmi. All rights reserved.
+        <div class="footer-bottom">
+          <div class="copy">
+            &copy; 2026 Jyotish by Lakshmi. All rights reserved.
+          </div>
+          <div class="copy">
+            Built with &#10084; for cosmic seekers worldwide
+          </div>
         </div>
       </div>
     </footer>
 
     <!-- WHATSAPP FLOATING BUTTON -->
-    <!-- PLACEHOLDER -->
+    <!-- PLACEHOLDER: Replace 919999999999 with client's WhatsApp number -->
     <a
       href="https://wa.me/919999999999"
       target="_blank"
@@ -1560,6 +2519,429 @@
       </svg>
     </a>
 
-    <script src="./script.js"></script>
+    <script>
+      (() => {
+        "use strict";
+
+        // ─── FONT FAMILIES ───────────────────────────────────────────────
+        var fonts = [
+          {
+            name: "Cinzel",
+            value: "'Cinzel', serif",
+            google: "Cinzel:wght@400;600;700;900",
+          },
+          {
+            name: "Playfair Display",
+            value: "'Playfair Display', serif",
+            google: "Playfair+Display:wght@400;600;700;900",
+          },
+          {
+            name: "Cormorant Garamond",
+            value: "'Cormorant Garamond', serif",
+            google: "Cormorant+Garamond:wght@400;600;700",
+          },
+          {
+            name: "EB Garamond",
+            value: "'EB Garamond', serif",
+            google: "EB+Garamond:wght@400;600;700",
+          },
+          {
+            name: "Libre Baskerville",
+            value: "'Libre Baskerville', serif",
+            google: "Libre+Baskerville:wght@400;700",
+          },
+          {
+            name: "DM Serif Display",
+            value: "'DM Serif Display', serif",
+            google: "DM+Serif+Display",
+          },
+          {
+            name: "Merriweather",
+            value: "'Merriweather', serif",
+            google: "Merriweather:wght@400;700;900",
+          },
+          {
+            name: "Poppins",
+            value: "'Poppins', sans-serif",
+            google: "Poppins:wght@400;600;700;900",
+          },
+          {
+            name: "Montserrat",
+            value: "'Montserrat', sans-serif",
+            google: "Montserrat:wght@400;600;700;900",
+          },
+          {
+            name: "Raleway",
+            value: "'Raleway', sans-serif",
+            google: "Raleway:wght@400;600;700;900",
+          },
+        ];
+        var bodyFonts = [
+          {
+            name: "Lato",
+            value: "'Lato', sans-serif",
+            google: "Lato:wght@300;400;700",
+          },
+          {
+            name: "Open Sans",
+            value: "'Open Sans', sans-serif",
+            google: "Open+Sans:wght@300;400;600;700",
+          },
+          {
+            name: "Inter",
+            value: "'Inter', sans-serif",
+            google: "Inter:wght@300;400;600;700",
+          },
+          {
+            name: "Nunito",
+            value: "'Nunito', sans-serif",
+            google: "Nunito:wght@300;400;600;700",
+          },
+          {
+            name: "Source Sans 3",
+            value: "'Source Sans 3', sans-serif",
+            google: "Source+Sans+3:wght@300;400;600;700",
+          },
+        ];
+
+        // ─── LOAD GOOGLE FONT ─────────────────────────────────────────
+        function loadFont(googleParam) {
+          var id = "gf-" + googleParam.replace(/[^a-z0-9]/gi, "");
+          if (document.getElementById(id)) return;
+          var link = document.createElement("link");
+          link.id = id;
+          link.rel = "stylesheet";
+          link.href =
+            "https://fonts.googleapis.com/css2?family=" +
+            googleParam +
+            "&display=swap";
+          document.head.appendChild(link);
+        }
+
+        // ─── THEME TOGGLE ─────────────────────────────────────────────
+        function setTheme(mode) {
+          document.documentElement.setAttribute("data-theme", mode);
+          localStorage.setItem("jl-theme", mode);
+          var btn = document.getElementById("theme-toggle");
+          if (btn) {
+            btn.textContent = mode === "dark" ? "☀" : "☽";
+            btn.title = mode === "dark" ? "Switch to Light" : "Switch to Dark";
+          }
+        }
+        function initTheme() {
+          var saved = localStorage.getItem("jl-theme") || "light";
+          setTheme(saved);
+          var btn = document.getElementById("theme-toggle");
+          if (btn) {
+            btn.addEventListener("click", function () {
+              setTheme(
+                document.documentElement.getAttribute("data-theme") === "dark"
+                  ? "light"
+                  : "dark",
+              );
+            });
+          }
+        }
+
+        // ─── FONT SELECTOR ────────────────────────────────────────────
+        function initFontSelector() {
+          var headingSelect = document.getElementById("font-heading");
+          var bodySelect = document.getElementById("font-body");
+
+          if (headingSelect) {
+            fonts.forEach(function (f) {
+              var opt = document.createElement("option");
+              opt.value = f.value;
+              opt.textContent = f.name;
+              opt.setAttribute("data-google", f.google);
+              headingSelect.appendChild(opt);
+            });
+            var savedH = localStorage.getItem("jl-font-heading");
+            if (savedH) {
+              headingSelect.value = savedH;
+              applyHeadingFont(savedH);
+            }
+            headingSelect.addEventListener("change", function () {
+              var gf =
+                this.options[this.selectedIndex].getAttribute("data-google");
+              if (gf) loadFont(gf);
+              applyHeadingFont(this.value);
+              localStorage.setItem("jl-font-heading", this.value);
+            });
+          }
+
+          if (bodySelect) {
+            bodyFonts.forEach(function (f) {
+              var opt = document.createElement("option");
+              opt.value = f.value;
+              opt.textContent = f.name;
+              opt.setAttribute("data-google", f.google);
+              bodySelect.appendChild(opt);
+            });
+            var savedB = localStorage.getItem("jl-font-body");
+            if (savedB) {
+              bodySelect.value = savedB;
+              applyBodyFont(savedB);
+            }
+            bodySelect.addEventListener("change", function () {
+              var gf =
+                this.options[this.selectedIndex].getAttribute("data-google");
+              if (gf) loadFont(gf);
+              applyBodyFont(this.value);
+              localStorage.setItem("jl-font-body", this.value);
+            });
+          }
+        }
+        function applyHeadingFont(v) {
+          document.documentElement.style.setProperty("--font-heading", v);
+        }
+        function applyBodyFont(v) {
+          document.documentElement.style.setProperty("--font-body", v);
+        }
+
+        // ─── HERO ENTRANCE ────────────────────────────────────────────
+        function initHeroEntrance() {
+          var els = document.querySelectorAll(".hero-enter");
+          els.forEach(function (el, i) {
+            setTimeout(
+              function () {
+                el.classList.add("show");
+              },
+              150 + i * 140,
+            );
+          });
+        }
+
+        // ─── SCROLL REVEAL ────────────────────────────────────────────
+        function initScrollReveal() {
+          var els = document.querySelectorAll(".reveal");
+          var obs = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  e.target.classList.add("visible");
+                  obs.unobserve(e.target);
+                }
+              });
+            },
+            { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+          );
+          els.forEach(function (el) {
+            obs.observe(el);
+          });
+        }
+
+        // ─── ANIMATED COUNTER ─────────────────────────────────────────
+        function initCounter() {
+          function animateCounter(el, target, suffix) {
+            var duration = 1800,
+              startTime = null;
+            function step(ts) {
+              if (!startTime) startTime = ts;
+              var p = Math.min((ts - startTime) / duration, 1);
+              el.textContent =
+                Math.floor((1 - Math.pow(1 - p, 3)) * target) + suffix;
+              if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          }
+          var observed = false;
+          var obs = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting && !observed) {
+                  observed = true;
+                  var nums = document.querySelectorAll(".stat-item .num");
+                  var data = [
+                    { v: 500, s: "+" },
+                    { v: 15, s: "+" },
+                    { v: 20, s: "+" },
+                    { v: 98, s: "%" },
+                  ];
+                  nums.forEach(function (n, i) {
+                    animateCounter(n, data[i].v, data[i].s);
+                  });
+                  obs.unobserve(e.target);
+                }
+              });
+            },
+            { threshold: 0.3 },
+          );
+          var bar = document.querySelector(".stats-bar");
+          if (bar) obs.observe(bar);
+        }
+
+        // ─── NAVBAR SCROLL + ACTIVE ───────────────────────────────────
+        function initNavbar() {
+          var nav = document.getElementById("navbar");
+          var secs = document.querySelectorAll("section[id]");
+          var links = document.querySelectorAll(".nav-links a:not(.cta)");
+          window.addEventListener(
+            "scroll",
+            function () {
+              nav.classList.toggle("scrolled", window.scrollY > 20);
+              var pos = window.scrollY + 140;
+              secs.forEach(function (s) {
+                if (pos >= s.offsetTop && pos < s.offsetTop + s.offsetHeight) {
+                  links.forEach(function (l) {
+                    l.classList.toggle(
+                      "active",
+                      l.getAttribute("href") === "#" + s.id,
+                    );
+                  });
+                }
+              });
+            },
+            { passive: true },
+          );
+        }
+
+        // ─── MOBILE MENU (class-based) ────────────────────────────────
+        function initMobileMenu() {
+          var btn = document.getElementById("menu-btn");
+          var navEl = document.getElementById("nav-links");
+          if (!btn || !navEl) return;
+          btn.addEventListener("click", function () {
+            var isOpen = navEl.classList.contains("nav-open");
+            navEl.classList.toggle("nav-open", !isOpen);
+            btn.setAttribute("aria-expanded", String(!isOpen));
+            btn.innerHTML = isOpen ? "&#9776;" : "&#10005;";
+          });
+          // Close on link click (mobile)
+          navEl.querySelectorAll("a").forEach(function (a) {
+            a.addEventListener("click", function () {
+              navEl.classList.remove("nav-open");
+              btn.setAttribute("aria-expanded", "false");
+              btn.innerHTML = "&#9776;";
+            });
+          });
+        }
+
+        // ─── FAQ ACCORDION ────────────────────────────────────────────
+        function initFAQ() {
+          var items = document.querySelectorAll(".faq-item");
+          items.forEach(function (item) {
+            var btn = item.querySelector(".faq-q");
+            if (!btn) return;
+            btn.addEventListener("click", function () {
+              var isOpen = item.classList.contains("open");
+              // Close all others
+              items.forEach(function (i) {
+                i.classList.remove("open");
+                i.querySelector(".faq-q").setAttribute(
+                  "aria-expanded",
+                  "false",
+                );
+              });
+              if (!isOpen) {
+                item.classList.add("open");
+                btn.setAttribute("aria-expanded", "true");
+              }
+            });
+          });
+        }
+
+        // ─── LUCKY NUMBER CALCULATOR ──────────────────────────────────
+        var NUMEROLOGY_MEANINGS = {
+          1: "The Leader — pioneering, independent, ambitious",
+          2: "The Diplomat — harmony, balance, cooperation",
+          3: "The Communicator — creative, expressive, joyful",
+          4: "The Builder — stable, hardworking, practical",
+          5: "The Explorer — freedom-loving, adventurous, adaptable",
+          6: "The Nurturer — caring, responsible, family-oriented",
+          7: "The Seeker — analytical, spiritual, introspective",
+          8: "The Achiever — powerful, executive, material success",
+          9: "The Humanitarian — compassionate, wise, universal love",
+          11: "Master Number — intuitive, inspirational, visionary",
+          22: "Master Number — master builder, large-scale ambition",
+          33: "Master Number — master teacher, uplifting humanity",
+        };
+        function reduceToSingleDigit(n) {
+          // Preserve master numbers 11, 22, 33
+          while (n > 9 && n !== 11 && n !== 22 && n !== 33) {
+            n = String(n)
+              .split("")
+              .reduce(function (a, d) {
+                return a + parseInt(d, 10);
+              }, 0);
+          }
+          return n;
+        }
+        function nameToNumber(name) {
+          var MAP = {
+            A: 1,
+            B: 2,
+            C: 3,
+            D: 4,
+            E: 5,
+            F: 6,
+            G: 7,
+            H: 8,
+            I: 9,
+            J: 1,
+            K: 2,
+            L: 3,
+            M: 4,
+            N: 5,
+            O: 6,
+            P: 7,
+            Q: 8,
+            R: 9,
+            S: 1,
+            T: 2,
+            U: 3,
+            V: 4,
+            W: 5,
+            X: 6,
+            Y: 7,
+            Z: 8,
+          };
+          var sum = name
+            .toUpperCase()
+            .split("")
+            .reduce(function (acc, ch) {
+              return acc + (MAP[ch] || 0);
+            }, 0);
+          return reduceToSingleDigit(sum);
+        }
+        function initLuckyCalc() {
+          var btn = document.getElementById("calc-btn");
+          var input = document.getElementById("calc-name");
+          var result = document.getElementById("lucky-result");
+          var numEl = document.getElementById("result-num");
+          var lblEl = document.getElementById("result-label");
+          if (!btn || !input) return;
+          function calculate() {
+            var name = (input.value || "").trim();
+            if (!name) {
+              input.focus();
+              return;
+            }
+            var num = nameToNumber(name);
+            numEl.textContent = num;
+            lblEl.textContent =
+              NUMEROLOGY_MEANINGS[num] || "Unique cosmic vibration";
+            result.classList.add("show");
+          }
+          btn.addEventListener("click", calculate);
+          input.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") calculate();
+          });
+        }
+
+        // ─── INIT ─────────────────────────────────────────────────────
+        document.addEventListener("DOMContentLoaded", function () {
+          initTheme();
+          initFontSelector();
+          initHeroEntrance();
+          initScrollReveal();
+          initCounter();
+          initNavbar();
+          initMobileMenu();
+          initFAQ();
+          initLuckyCalc();
+        });
+      })();
+    </script>
   </body>
 </html>
