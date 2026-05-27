@@ -26,7 +26,7 @@ Before booking a consultation, users must donate to one of the following charity
 4. Orphanage / Old Age Home
 5. Goshala (Cow Feeding/Shelter)
 
-**Brand reference:** www.nindaambika satyavadhee.org — "Fortune Future Vibe"
+**Brand reference:** www.nirdambika satyavadhee.org — "Fortune Future Vibe"
 
 ---
 
