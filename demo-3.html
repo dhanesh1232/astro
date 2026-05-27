@@ -1,0 +1,1219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo 3 — Bold Spiritual | Jyotish by Lakshmi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              emerald: "#1B5E20",
+              golden: "#FDD835",
+              goldenHover: "#FBC02D",
+            },
+            fontFamily: {
+              heading: ["DM Serif Display", "serif"],
+              body: ["Nunito", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Nunito", sans-serif;
+        color: #1b5e20;
+        opacity: 0;
+        transition: opacity 0.6s ease;
+      }
+      body.loaded {
+        opacity: 1;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "DM Serif Display", serif;
+        color: #1b5e20;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #fdd835;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+      .nav-link.active {
+        font-weight: 700;
+      }
+      .faq-item .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      .faq-item.open .faq-answer {
+        max-height: 300px;
+      }
+      .faq-item.open {
+        border-left: 4px solid #fdd835;
+        padding-left: 1rem;
+      }
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-overlay.show {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- DEMO SWITCHER -->
+    <div
+      class="w-full bg-white border-b-2 border-golden py-3 px-6 flex flex-wrap items-center justify-between gap-2 text-xs"
+    >
+      <span
+        class="font-heading text-emerald font-semibold uppercase tracking-widest"
+        >☽ Demo Designs:</span
+      >
+      <div class="flex flex-wrap items-center gap-2">
+        <a
+          href="index.html"
+          class="px-4 py-1.5 border border-golden text-emerald font-bold hover:bg-golden transition"
+          >Main Site</a
+        >
+        <a
+          href="demo-1.html"
+          class="px-4 py-1.5 border border-golden text-emerald font-bold hover:bg-golden transition"
+          >Demo 1</a
+        >
+        <a
+          href="demo-2.html"
+          class="px-4 py-1.5 border border-golden text-emerald font-bold hover:bg-golden transition"
+          >Demo 2</a
+        >
+        <span class="px-4 py-1.5 bg-golden text-emerald font-bold"
+          >✓ Demo 3</span
+        >
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-white border-b-2 border-golden">
+      <div
+        class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between"
+      >
+        <a href="#" class="font-heading text-2xl font-semibold text-emerald"
+          >☽ Jyotish by Lakshmi</a
+        >
+        <div class="hidden md:flex items-center gap-10">
+          <a
+            href="#home"
+            class="nav-link font-body text-emerald font-medium transition"
+            >Home</a
+          >
+          <a
+            href="#services"
+            class="nav-link font-body text-emerald font-medium transition"
+            >Services</a
+          >
+          <a
+            href="#how-it-works"
+            class="nav-link font-body text-emerald font-medium transition"
+            >How It Works</a
+          >
+          <a
+            href="#karma"
+            class="nav-link font-body text-emerald font-medium transition"
+            >Good Karma</a
+          >
+          <a
+            href="#reviews"
+            class="nav-link font-body text-emerald font-medium transition"
+            >Reviews</a
+          >
+          <a
+            href="#karma"
+            class="bg-golden hover:bg-goldenHover text-emerald font-bold px-7 py-2.5 transition hover:-translate-y-0.5"
+            >Book Now</a
+          >
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden text-emerald">
+          <i data-lucide="menu" class="w-7 h-7"></i>
+        </button>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t-2 border-golden px-6 pb-6"
+      >
+        <a
+          href="#home"
+          class="mobile-nav-link block py-3 text-emerald font-medium"
+          >Home</a
+        >
+        <a
+          href="#services"
+          class="mobile-nav-link block py-3 text-emerald font-medium"
+          >Services</a
+        >
+        <a
+          href="#how-it-works"
+          class="mobile-nav-link block py-3 text-emerald font-medium"
+          >How It Works</a
+        >
+        <a
+          href="#karma"
+          class="mobile-nav-link block py-3 text-emerald font-medium"
+          >Good Karma</a
+        >
+        <a
+          href="#reviews"
+          class="mobile-nav-link block py-3 text-emerald font-medium"
+          >Reviews</a
+        >
+        <a
+          href="#karma"
+          class="mobile-nav-link block mt-3 bg-golden hover:bg-goldenHover text-emerald font-bold px-7 py-3 text-center transition"
+          >Book Now</a
+        >
+      </div>
+    </nav>
+
+    <!-- HERO — Bold Split Layout -->
+    <section id="home" class="bg-white py-24 md:py-36">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div class="reveal">
+            <h1
+              class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-emerald mb-8 leading-tight"
+            >
+              Do Good.<br />Know Your Stars.
+            </h1>
+            <p
+              class="font-body text-xl md:text-2xl text-emerald/80 mb-12 leading-relaxed font-semibold"
+            >
+              Unlock the wisdom of Vedic astrology with personalized readings
+              rooted in ancient tradition. Your stars hold the answers — let us
+              guide you to clarity and purpose.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 mb-14">
+              <a
+                href="#karma"
+                class="bg-golden hover:bg-goldenHover text-emerald font-extrabold px-10 py-5 text-xl text-center transition hover:-translate-y-0.5"
+                >Start with Good Karma</a
+              >
+              <a
+                href="#services"
+                class="border-2 border-golden text-emerald font-extrabold px-10 py-5 text-xl text-center hover:bg-golden transition hover:-translate-y-0.5"
+                >Explore Services</a
+              >
+            </div>
+            <div class="flex flex-wrap gap-10 md:gap-14">
+              <div>
+                <p
+                  class="font-heading text-3xl md:text-4xl font-bold text-emerald"
+                >
+                  500+
+                </p>
+                <p class="font-body text-sm text-emerald/70 font-semibold">
+                  Happy Clients
+                </p>
+              </div>
+              <div>
+                <p
+                  class="font-heading text-3xl md:text-4xl font-bold text-emerald"
+                >
+                  15+
+                </p>
+                <p class="font-body text-sm text-emerald/70 font-semibold">
+                  Years Experience
+                </p>
+              </div>
+              <div>
+                <p
+                  class="font-heading text-3xl md:text-4xl font-bold text-emerald"
+                >
+                  20+
+                </p>
+                <p class="font-body text-sm text-emerald/70 font-semibold">
+                  Countries Served
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center md:justify-end reveal">
+            <img
+              src="images/hero-portrait-demo3.png"
+              alt="Goddess Lakshmi - Divine Guidance"
+              class="w-full max-w-md md:max-w-lg object-cover border-4 border-golden transition-transform duration-300 hover:scale-[1.02]"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF STRIP -->
+    <div class="bg-white py-5 border-y border-golden/30">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <p class="font-body text-base text-emerald/70 font-semibold">
+          Trusted by clients in &nbsp; 🇺🇸 &nbsp; 🇬🇧 &nbsp; 🇦🇺 &nbsp; 🇨🇦 &nbsp;
+          🇮🇳 &nbsp; 🇦🇪 &nbsp; 🇸🇬
+        </p>
+      </div>
+    </div>
+
+    <!-- SERVICES — Full-Width Blocks with Golden Icon Squares + Yellow Dividers -->
+    <section id="services" class="bg-white py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-20 reveal">
+          <h2
+            class="font-heading text-4xl md:text-5xl font-bold text-emerald mb-4"
+          >
+            Our Services
+          </h2>
+          <p
+            class="font-body text-lg text-emerald/70 max-w-2xl mx-auto font-semibold"
+          >
+            Ancient wisdom meets modern guidance — choose the path that
+            resonates with your soul.
+          </p>
+        </div>
+        <div class="reveal">
+          <!-- Service 1 -->
+          <div class="flex flex-col md:flex-row items-center gap-8 py-10">
+            <div
+              class="flex-shrink-0 w-20 h-20 bg-golden flex items-center justify-center"
+            >
+              <i data-lucide="star" class="w-10 h-10 text-emerald"></i>
+            </div>
+            <div>
+              <h3 class="font-heading text-2xl md:text-3xl text-emerald mb-2">
+                Vedic Astrology
+              </h3>
+              <p class="font-body text-lg text-emerald/70 font-semibold">
+                Comprehensive birth chart analysis using ancient Vedic
+                principles. Understand your planetary positions, dashas, and
+                life path with precision and clarity.
+              </p>
+            </div>
+          </div>
+          <!-- Divider -->
+          <div class="w-full h-0.5 bg-golden"></div>
+          <!-- Service 2 -->
+          <div class="flex flex-col md:flex-row items-center gap-8 py-10">
+            <div
+              class="flex-shrink-0 w-20 h-20 bg-golden flex items-center justify-center"
+            >
+              <i data-lucide="hash" class="w-10 h-10 text-emerald"></i>
+            </div>
+            <div>
+              <h3 class="font-heading text-2xl md:text-3xl text-emerald mb-2">
+                Numerology
+              </h3>
+              <p class="font-body text-lg text-emerald/70 font-semibold">
+                Discover the hidden power of numbers in your life. From life
+                path numbers to destiny numbers, unlock the numerical blueprint
+                of your existence.
+              </p>
+            </div>
+          </div>
+          <!-- Divider -->
+          <div class="w-full h-0.5 bg-golden"></div>
+          <!-- Service 3 -->
+          <div class="flex flex-col md:flex-row items-center gap-8 py-10">
+            <div
+              class="flex-shrink-0 w-20 h-20 bg-golden flex items-center justify-center"
+            >
+              <i data-lucide="phone" class="w-10 h-10 text-emerald"></i>
+            </div>
+            <div>
+              <h3 class="font-heading text-2xl md:text-3xl text-emerald mb-2">
+                Lucky Number
+              </h3>
+              <p class="font-body text-lg text-emerald/70 font-semibold">
+                Get your personalized lucky mobile number based on your birth
+                details. Align your daily communications with cosmic vibrations
+                for success.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS — Large Golden Numbers with Yellow Dividers -->
+    <section id="how-it-works" class="bg-white py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-20 reveal">
+          <h2
+            class="font-heading text-4xl md:text-5xl font-bold text-emerald mb-4"
+          >
+            How It Works
+          </h2>
+          <p
+            class="font-body text-lg text-emerald/70 max-w-2xl mx-auto font-semibold"
+          >
+            Four simple steps to begin your journey of self-discovery.
+          </p>
+        </div>
+        <div class="max-w-4xl mx-auto reveal">
+          <!-- Step 1 -->
+          <div class="flex items-start gap-8 py-8">
+            <span
+              class="font-heading text-5xl md:text-6xl font-bold text-golden leading-none"
+              >1</span
+            >
+            <div class="pt-2">
+              <h4 class="font-heading text-2xl text-emerald mb-2">
+                Do Good Karma
+              </h4>
+              <p class="font-body text-lg text-emerald/70 font-semibold">
+                Make a charitable donation to a cause that speaks to your heart.
+              </p>
+            </div>
+          </div>
+          <!-- Divider -->
+          <div class="w-full h-0.5 bg-golden"></div>
+          <!-- Step 2 -->
+          <div class="flex items-start gap-8 py-8">
+            <span
+              class="font-heading text-5xl md:text-6xl font-bold text-golden leading-none"
+              >2</span
+            >
+            <div class="pt-2">
+              <h4 class="font-heading text-2xl text-emerald mb-2">
+                Get Donation ID
+              </h4>
+              <p class="font-body text-lg text-emerald/70 font-semibold">
+                Receive your unique Donation ID after completing your
+                contribution.
+              </p>
+            </div>
+          </div>
+          <!-- Divider -->
+          <div class="w-full h-0.5 bg-golden"></div>
+          <!-- Step 3 -->
+          <div class="flex items-start gap-8 py-8">
+            <span
+              class="font-heading text-5xl md:text-6xl font-bold text-golden leading-none"
+              >3</span
+            >
+            <div class="pt-2">
+              <h4 class="font-heading text-2xl text-emerald mb-2">Fill Form</h4>
+              <p class="font-body text-lg text-emerald/70 font-semibold">
+                Complete the consultation form with your birth details and
+                preferences.
+              </p>
+            </div>
+          </div>
+          <!-- Divider -->
+          <div class="w-full h-0.5 bg-golden"></div>
+          <!-- Step 4 -->
+          <div class="flex items-start gap-8 py-8">
+            <span
+              class="font-heading text-5xl md:text-6xl font-bold text-golden leading-none"
+              >4</span
+            >
+            <div class="pt-2">
+              <h4 class="font-heading text-2xl text-emerald mb-2">
+                Book Appointment
+              </h4>
+              <p class="font-body text-lg text-emerald/70 font-semibold">
+                Schedule your personalized consultation at a time that works for
+                you.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOOD KARMA — 2-Column Grid with Large Golden Icon Squares -->
+    <section id="karma" class="bg-white py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-20 reveal">
+          <h2
+            class="font-heading text-4xl md:text-5xl font-bold text-emerald mb-4"
+          >
+            Good Karma
+          </h2>
+          <p
+            class="font-body text-lg text-emerald/70 max-w-2xl mx-auto font-semibold"
+          >
+            Begin your journey with an act of kindness. Choose a cause and
+            donate to unlock your consultation.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+          <!-- Charity 1 -->
+          <div
+            class="flex items-center gap-6 p-6 border border-golden hover:border-golden transition-all duration-300 cursor-pointer"
+            onclick="openDonationModal('Feed the Hungry')"
+          >
+            <div
+              class="flex-shrink-0 w-16 h-16 bg-golden flex items-center justify-center"
+            >
+              <i data-lucide="utensils" class="w-8 h-8 text-emerald"></i>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-heading text-xl text-emerald mb-1">
+                Feed the Hungry
+              </h4>
+              <p class="font-body text-sm text-emerald/70">
+                Provide meals to those in need
+              </p>
+            </div>
+            <button
+              class="bg-golden hover:bg-goldenHover text-emerald font-bold text-sm px-4 py-2 transition hover:-translate-y-0.5"
+            >
+              Donate & Proceed
+            </button>
+          </div>
+          <!-- Charity 2 -->
+          <div
+            class="flex items-center gap-6 p-6 border border-golden hover:border-golden transition-all duration-300 cursor-pointer"
+            onclick="openDonationModal('Educate a Child')"
+          >
+            <div
+              class="flex-shrink-0 w-16 h-16 bg-golden flex items-center justify-center"
+            >
+              <i data-lucide="book-open" class="w-8 h-8 text-emerald"></i>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-heading text-xl text-emerald mb-1">
+                Educate a Child
+              </h4>
+              <p class="font-body text-sm text-emerald/70">
+                Support education for underprivileged children
+              </p>
+            </div>
+            <button
+              class="bg-golden hover:bg-goldenHover text-emerald font-bold text-sm px-4 py-2 transition hover:-translate-y-0.5"
+            >
+              Donate & Proceed
+            </button>
+          </div>
+          <!-- Charity 3 -->
+          <div
+            class="flex items-center gap-6 p-6 border border-golden hover:border-golden transition-all duration-300 cursor-pointer"
+            onclick="openDonationModal('Plant Trees')"
+          >
+            <div
+              class="flex-shrink-0 w-16 h-16 bg-golden flex items-center justify-center"
+            >
+              <i data-lucide="trees" class="w-8 h-8 text-emerald"></i>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-heading text-xl text-emerald mb-1">
+                Plant Trees
+              </h4>
+              <p class="font-body text-sm text-emerald/70">
+                Help restore forests and fight climate change
+              </p>
+            </div>
+            <button
+              class="bg-golden hover:bg-goldenHover text-emerald font-bold text-sm px-4 py-2 transition hover:-translate-y-0.5"
+            >
+              Donate & Proceed
+            </button>
+          </div>
+          <!-- Charity 4 -->
+          <div
+            class="flex items-center gap-6 p-6 border border-golden hover:border-golden transition-all duration-300 cursor-pointer"
+            onclick="openDonationModal('Animal Welfare')"
+          >
+            <div
+              class="flex-shrink-0 w-16 h-16 bg-golden flex items-center justify-center"
+            >
+              <i data-lucide="heart" class="w-8 h-8 text-emerald"></i>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-heading text-xl text-emerald mb-1">
+                Animal Welfare
+              </h4>
+              <p class="font-body text-sm text-emerald/70">
+                Protect and care for animals in need
+              </p>
+            </div>
+            <button
+              class="bg-golden hover:bg-goldenHover text-emerald font-bold text-sm px-4 py-2 transition hover:-translate-y-0.5"
+            >
+              Donate & Proceed
+            </button>
+          </div>
+          <!-- Charity 5 -->
+          <div
+            class="flex items-center gap-6 p-6 border border-golden hover:border-golden transition-all duration-300 cursor-pointer"
+            onclick="openDonationModal('Clean Water')"
+          >
+            <div
+              class="flex-shrink-0 w-16 h-16 bg-golden flex items-center justify-center"
+            >
+              <i data-lucide="droplets" class="w-8 h-8 text-emerald"></i>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-heading text-xl text-emerald mb-1">
+                Clean Water
+              </h4>
+              <p class="font-body text-sm text-emerald/70">
+                Provide safe drinking water to communities
+              </p>
+            </div>
+            <button
+              class="bg-golden hover:bg-goldenHover text-emerald font-bold text-sm px-4 py-2 transition hover:-translate-y-0.5"
+            >
+              Donate & Proceed
+            </button>
+          </div>
+          <!-- Charity 6 -->
+          <div
+            class="flex items-center gap-6 p-6 border border-golden hover:border-golden transition-all duration-300 cursor-pointer"
+            onclick="openDonationModal('Healthcare Access')"
+          >
+            <div
+              class="flex-shrink-0 w-16 h-16 bg-golden flex items-center justify-center"
+            >
+              <i data-lucide="stethoscope" class="w-8 h-8 text-emerald"></i>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-heading text-xl text-emerald mb-1">
+                Healthcare Access
+              </h4>
+              <p class="font-body text-sm text-emerald/70">
+                Support medical care for the underserved
+              </p>
+            </div>
+            <button
+              class="bg-golden hover:bg-goldenHover text-emerald font-bold text-sm px-4 py-2 transition hover:-translate-y-0.5"
+            >
+              Donate & Proceed
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DONATION ID MODAL -->
+    <div id="donation-modal" class="modal-overlay">
+      <div class="bg-white border-2 border-golden p-8 max-w-md w-full mx-4">
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="font-heading text-2xl text-emerald">Enter Donation ID</h3>
+          <button
+            onclick="closeDonationModal()"
+            class="text-emerald hover:text-emerald/70 transition"
+          >
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <p class="font-body text-sm text-emerald/70 mb-6 font-semibold">
+          After completing your donation, enter the Donation ID you received to
+          proceed with booking your consultation.
+        </p>
+        <input
+          type="text"
+          id="donation-id-input"
+          placeholder="Enter your Donation ID"
+          class="w-full border-2 border-golden px-4 py-3 font-body text-emerald placeholder:text-emerald/40 focus:outline-none focus:border-emerald mb-6"
+        />
+        <button
+          onclick="proceedToBooking()"
+          class="w-full bg-golden hover:bg-goldenHover text-emerald font-bold py-4 text-lg transition hover:-translate-y-0.5"
+        >
+          Proceed to Booking
+        </button>
+      </div>
+    </div>
+
+    <!-- CONSULTATION FORM (Hidden by default) -->
+    <section
+      id="consultation-form"
+      style="display: none"
+      class="bg-white py-24"
+    >
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2
+            class="font-heading text-4xl md:text-5xl font-bold text-emerald mb-4"
+          >
+            Book Your Consultation
+          </h2>
+          <p class="font-body text-lg text-emerald/70 font-semibold">
+            Fill in your details below and we'll schedule your personalized
+            reading.
+          </p>
+        </div>
+        <form class="space-y-5">
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label class="font-body text-sm font-bold text-emerald block mb-1"
+                >Full Name</label
+              >
+              <input
+                type="text"
+                placeholder="Your full name"
+                class="w-full border-2 border-golden px-4 py-3 font-body text-emerald placeholder:text-emerald/40 focus:outline-none focus:border-emerald"
+              />
+            </div>
+            <div>
+              <label class="font-body text-sm font-bold text-emerald block mb-1"
+                >Gender</label
+              >
+              <select
+                class="w-full border-2 border-golden px-4 py-3 font-body text-emerald focus:outline-none focus:border-emerald"
+              >
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label class="font-body text-sm font-bold text-emerald block mb-1"
+                >Date of Birth</label
+              >
+              <input
+                type="date"
+                class="w-full border-2 border-golden px-4 py-3 font-body text-emerald focus:outline-none focus:border-emerald"
+              />
+            </div>
+            <div>
+              <label class="font-body text-sm font-bold text-emerald block mb-1"
+                >Time of Birth</label
+              >
+              <input
+                type="time"
+                class="w-full border-2 border-golden px-4 py-3 font-body text-emerald focus:outline-none focus:border-emerald"
+              />
+            </div>
+          </div>
+          <div>
+            <label class="font-body text-sm font-bold text-emerald block mb-1"
+              >Place of Birth</label
+            >
+            <input
+              type="text"
+              placeholder="City, Country"
+              class="w-full border-2 border-golden px-4 py-3 font-body text-emerald placeholder:text-emerald/40 focus:outline-none focus:border-emerald"
+            />
+          </div>
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label class="font-body text-sm font-bold text-emerald block mb-1"
+                >WhatsApp Number</label
+              >
+              <input
+                type="tel"
+                placeholder="+1 234 567 8900"
+                class="w-full border-2 border-golden px-4 py-3 font-body text-emerald placeholder:text-emerald/40 focus:outline-none focus:border-emerald"
+              />
+            </div>
+            <div>
+              <label class="font-body text-sm font-bold text-emerald block mb-1"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                placeholder="you@example.com"
+                class="w-full border-2 border-golden px-4 py-3 font-body text-emerald placeholder:text-emerald/40 focus:outline-none focus:border-emerald"
+              />
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label class="font-body text-sm font-bold text-emerald block mb-1"
+                >Country</label
+              >
+              <input
+                type="text"
+                placeholder="Your country"
+                class="w-full border-2 border-golden px-4 py-3 font-body text-emerald placeholder:text-emerald/40 focus:outline-none focus:border-emerald"
+              />
+            </div>
+            <div>
+              <label class="font-body text-sm font-bold text-emerald block mb-1"
+                >Occupation</label
+              >
+              <input
+                type="text"
+                placeholder="Your occupation"
+                class="w-full border-2 border-golden px-4 py-3 font-body text-emerald placeholder:text-emerald/40 focus:outline-none focus:border-emerald"
+              />
+            </div>
+          </div>
+          <div>
+            <label class="font-body text-sm font-bold text-emerald block mb-1"
+              >Donation ID</label
+            >
+            <input
+              type="text"
+              id="form-donation-id"
+              readonly
+              class="w-full border-2 border-golden px-4 py-3 font-body text-emerald bg-golden/10 focus:outline-none"
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-golden hover:bg-goldenHover text-emerald font-extrabold py-5 text-xl transition hover:-translate-y-0.5"
+          >
+            Submit & Book Appointment
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FAQ ACCORDION -->
+    <section id="faq" class="bg-white py-24">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="text-center mb-16 reveal">
+          <h2
+            class="font-heading text-4xl md:text-5xl font-bold text-emerald mb-4"
+          >
+            Frequently Asked Questions
+          </h2>
+          <p class="font-body text-lg text-emerald/70 font-semibold">
+            Everything you need to know before your consultation.
+          </p>
+        </div>
+        <div class="space-y-4 reveal">
+          <!-- FAQ 1 -->
+          <div class="faq-item border-b border-golden/30 pb-4">
+            <button
+              class="faq-toggle w-full flex items-center justify-between text-left py-3"
+              onclick="toggleFaq(this)"
+            >
+              <span class="font-body font-bold text-emerald text-lg"
+                >What information do I need for a Vedic astrology reading?</span
+              >
+              <i
+                data-lucide="chevron-down"
+                class="w-5 h-5 text-emerald transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="faq-answer">
+              <p class="font-body text-emerald/70 pt-2 pb-1 font-semibold">
+                You'll need your exact date of birth, time of birth (as precise
+                as possible), and place of birth. These details help us create
+                an accurate birth chart for your reading.
+              </p>
+            </div>
+          </div>
+          <!-- FAQ 2 -->
+          <div class="faq-item border-b border-golden/30 pb-4">
+            <button
+              class="faq-toggle w-full flex items-center justify-between text-left py-3"
+              onclick="toggleFaq(this)"
+            >
+              <span class="font-body font-bold text-emerald text-lg"
+                >Why do I need to make a donation first?</span
+              >
+              <i
+                data-lucide="chevron-down"
+                class="w-5 h-5 text-emerald transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="faq-answer">
+              <p class="font-body text-emerald/70 pt-2 pb-1 font-semibold">
+                The donation is part of the Good Karma philosophy. By giving
+                first, you align your energy with positive vibrations, which
+                enhances the accuracy and benefit of your reading.
+              </p>
+            </div>
+          </div>
+          <!-- FAQ 3 -->
+          <div class="faq-item border-b border-golden/30 pb-4">
+            <button
+              class="faq-toggle w-full flex items-center justify-between text-left py-3"
+              onclick="toggleFaq(this)"
+            >
+              <span class="font-body font-bold text-emerald text-lg"
+                >How long does a consultation session last?</span
+              >
+              <i
+                data-lucide="chevron-down"
+                class="w-5 h-5 text-emerald transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="faq-answer">
+              <p class="font-body text-emerald/70 pt-2 pb-1 font-semibold">
+                A typical consultation lasts 45-60 minutes. This gives us enough
+                time to thoroughly analyze your chart and address all your
+                questions and concerns.
+              </p>
+            </div>
+          </div>
+          <!-- FAQ 4 -->
+          <div class="faq-item border-b border-golden/30 pb-4">
+            <button
+              class="faq-toggle w-full flex items-center justify-between text-left py-3"
+              onclick="toggleFaq(this)"
+            >
+              <span class="font-body font-bold text-emerald text-lg"
+                >Do you offer consultations for clients outside India?</span
+              >
+              <i
+                data-lucide="chevron-down"
+                class="w-5 h-5 text-emerald transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="faq-answer">
+              <p class="font-body text-emerald/70 pt-2 pb-1 font-semibold">
+                Yes, we serve clients in over 20 countries. Consultations are
+                conducted via video call or phone, making it convenient
+                regardless of your location.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS — Yellow Left Border Style -->
+    <section id="reviews" class="bg-white py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 reveal">
+          <h2
+            class="font-heading text-4xl md:text-5xl font-bold text-emerald mb-4"
+          >
+            What Our Clients Say
+          </h2>
+          <p
+            class="font-body text-lg text-emerald/70 max-w-2xl mx-auto font-semibold"
+          >
+            Real experiences from people whose lives were transformed through
+            cosmic guidance.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 reveal">
+          <!-- Testimonial 1 -->
+          <div
+            class="border-l-4 border-golden p-8 hover:border-golden transition-all duration-300"
+          >
+            <div class="flex items-center gap-1 mb-4">
+              <i data-lucide="star" class="w-4 h-4 text-golden fill-golden"></i>
+              <i data-lucide="star" class="w-4 h-4 text-golden fill-golden"></i>
+              <i data-lucide="star" class="w-4 h-4 text-golden fill-golden"></i>
+              <i data-lucide="star" class="w-4 h-4 text-golden fill-golden"></i>
+              <i data-lucide="star" class="w-4 h-4 text-golden fill-golden"></i>
+            </div>
+            <p class="font-body text-emerald/80 mb-6 italic text-lg">
+              "The reading was incredibly accurate. Lakshmi identified patterns
+              in my life I'd never noticed. Her guidance helped me make a career
+              decision I'd been struggling with for months."
+            </p>
+            <div>
+              <p class="font-body font-bold text-emerald">Sarah J.</p>
+              <p class="font-body text-sm text-emerald/60">London, UK</p>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div
+            class="border-l-4 border-golden p-8 hover:border-golden transition-all duration-300"
+          >
+            <div class="flex items-center gap-1 mb-4">
+              <i data-lucide="star" class="w-4 h-4 text-golden fill-golden"></i>
+              <i data-lucide="star" class="w-4 h-4 text-golden fill-golden"></i>
+              <i data-lucide="star" class="w-4 h-4 text-golden fill-golden"></i>
+              <i data-lucide="star" class="w-4 h-4 text-golden fill-golden"></i>
+              <i data-lucide="star" class="w-4 h-4 text-golden fill-golden"></i>
+            </div>
+            <p class="font-body text-emerald/80 mb-6 italic text-lg">
+              "I was skeptical at first, but the numerology session blew my
+              mind. The lucky number recommendation actually made a noticeable
+              difference in my business communications."
+            </p>
+            <div>
+              <p class="font-body font-bold text-emerald">Michael R.</p>
+              <p class="font-body text-sm text-emerald/60">New York, USA</p>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div
+            class="border-l-4 border-golden p-8 hover:border-golden transition-all duration-300"
+          >
+            <div class="flex items-center gap-1 mb-4">
+              <i data-lucide="star" class="w-4 h-4 text-golden fill-golden"></i>
+              <i data-lucide="star" class="w-4 h-4 text-golden fill-golden"></i>
+              <i data-lucide="star" class="w-4 h-4 text-golden fill-golden"></i>
+              <i data-lucide="star" class="w-4 h-4 text-golden fill-golden"></i>
+              <i data-lucide="star" class="w-4 h-4 text-golden fill-golden"></i>
+            </div>
+            <p class="font-body text-emerald/80 mb-6 italic text-lg">
+              "The Good Karma approach resonated deeply with me. Starting with a
+              donation set the right intention, and the consultation that
+              followed was transformative. Highly recommend!"
+            </p>
+            <div>
+              <p class="font-body font-bold text-emerald">Anita K.</p>
+              <p class="font-body text-sm text-emerald/60">Sydney, Australia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="bg-white py-24">
+      <div class="max-w-4xl mx-auto px-6 text-center reveal">
+        <h2
+          class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-emerald mb-8"
+        >
+          Ready to Discover Your Destiny?
+        </h2>
+        <p
+          class="font-body text-xl text-emerald/70 mb-12 max-w-2xl mx-auto font-semibold"
+        >
+          Take the first step towards cosmic clarity. Begin with Good Karma and
+          unlock the wisdom of the stars.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="#karma"
+            class="bg-golden hover:bg-goldenHover text-emerald font-extrabold px-12 py-5 text-xl transition hover:-translate-y-0.5"
+            >Start Your Journey</a
+          >
+          <a
+            href="https://wa.me/1234567890"
+            target="_blank"
+            class="border-2 border-golden text-emerald font-extrabold px-12 py-5 text-xl hover:bg-golden transition hover:-translate-y-0.5"
+            >Chat on WhatsApp</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#1B5E20] py-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-12">
+          <div>
+            <h3 class="font-heading text-2xl text-white mb-4">
+              ☽ Jyotish by Lakshmi
+            </h3>
+            <p class="font-body text-white/80 leading-relaxed font-semibold">
+              Ancient Vedic wisdom for modern life. Guiding souls through the
+              cosmic blueprint since 2009.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-body font-bold text-white mb-4 text-lg">
+              Quick Links
+            </h4>
+            <div class="space-y-2">
+              <a
+                href="#home"
+                class="block font-body text-white/80 hover:text-white transition"
+                >Home</a
+              >
+              <a
+                href="#services"
+                class="block font-body text-white/80 hover:text-white transition"
+                >Services</a
+              >
+              <a
+                href="#how-it-works"
+                class="block font-body text-white/80 hover:text-white transition"
+                >How It Works</a
+              >
+              <a
+                href="#karma"
+                class="block font-body text-white/80 hover:text-white transition"
+                >Good Karma</a
+              >
+              <a
+                href="#reviews"
+                class="block font-body text-white/80 hover:text-white transition"
+                >Reviews</a
+              >
+            </div>
+          </div>
+          <div>
+            <h4 class="font-body font-bold text-white mb-4 text-lg">Connect</h4>
+            <a
+              href="https://wa.me/1234567890"
+              target="_blank"
+              class="inline-flex items-center gap-2 font-body text-white/80 hover:text-white transition font-semibold"
+            >
+              <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp
+            </a>
+            <p class="font-body text-white/60 mt-4">
+              Available for consultations worldwide via video call.
+            </p>
+          </div>
+        </div>
+        <div class="border-t border-white/20 mt-12 pt-8 text-center">
+          <p class="font-body text-sm text-white/60">
+            © 2024 Jyotish by Lakshmi. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a
+      href="https://wa.me/1234567890"
+      target="_blank"
+      class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] flex items-center justify-center transition hover:-translate-y-0.5"
+      aria-label="Chat on WhatsApp"
+    >
+      <i data-lucide="message-circle" class="w-7 h-7 text-white"></i>
+    </a>
+
+    <!-- JAVASCRIPT -->
+    <script>
+      // Initialize Lucide Icons
+      lucide.createIcons();
+
+      // Page Load Fade-in
+      window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+      });
+
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Mobile Nav Auto-close on Link Tap
+      document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Scroll Reveal with IntersectionObserver
+      const revealElements = document.querySelectorAll(".reveal");
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      revealElements.forEach((el) => revealObserver.observe(el));
+
+      // Active Nav Highlighting on Scroll
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 120;
+          if (window.scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+          }
+        });
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+          }
+        });
+      });
+
+      // FAQ Accordion — One Open at a Time
+      function toggleFaq(btn) {
+        const item = btn.closest(".faq-item");
+        const isOpen = item.classList.contains("open");
+
+        // Close all
+        document.querySelectorAll(".faq-item").forEach((faq) => {
+          faq.classList.remove("open");
+          const icon = faq.querySelector(".faq-toggle i");
+          if (icon) icon.style.transform = "rotate(0deg)";
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add("open");
+          const icon = btn.querySelector("i");
+          if (icon) icon.style.transform = "rotate(180deg)";
+        }
+      }
+
+      // Donation Modal
+      function openDonationModal(cause) {
+        document.getElementById("donation-modal").classList.add("show");
+      }
+
+      function closeDonationModal() {
+        document.getElementById("donation-modal").classList.remove("show");
+      }
+
+      // Close modal on overlay click
+      document
+        .getElementById("donation-modal")
+        .addEventListener("click", (e) => {
+          if (e.target === e.currentTarget) {
+            closeDonationModal();
+          }
+        });
+
+      // Proceed to Booking
+      function proceedToBooking() {
+        const donationId = document
+          .getElementById("donation-id-input")
+          .value.trim();
+        if (!donationId) {
+          alert("Please enter your Donation ID to proceed.");
+          return;
+        }
+        // Close modal
+        closeDonationModal();
+        // Pre-fill donation ID in form
+        document.getElementById("form-donation-id").value = donationId;
+        // Show consultation form
+        const form = document.getElementById("consultation-form");
+        form.style.display = "block";
+        // Scroll to form
+        form.scrollIntoView({ behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>

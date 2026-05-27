@@ -34,29 +34,6 @@
     document.head.appendChild(link);
   }
 
-  // ─── THEME TOGGLE ────────────────────────────────────────────────
-  function setTheme(mode) {
-    document.documentElement.setAttribute("data-theme", mode);
-    localStorage.setItem("jl-theme", mode);
-    var btn = document.getElementById("theme-toggle");
-    if (btn) {
-      btn.textContent = mode === "dark" ? "☀" : "☽";
-      btn.title = mode === "dark" ? "Switch to Light" : "Switch to Dark";
-    }
-  }
-
-  function initTheme() {
-    var saved = localStorage.getItem("jl-theme") || "light";
-    setTheme(saved);
-    var btn = document.getElementById("theme-toggle");
-    if (btn) {
-      btn.addEventListener("click", function () {
-        var current = document.documentElement.getAttribute("data-theme");
-        setTheme(current === "dark" ? "light" : "dark");
-      });
-    }
-  }
-
   // ─── FONT SELECTOR ───────────────────────────────────────────────
   function initFontSelector() {
     var headingSelect = document.getElementById("font-heading");
@@ -238,7 +215,6 @@
 
   // ─── INIT ────────────────────────────────────────────────────────
   document.addEventListener("DOMContentLoaded", function () {
-    initTheme();
     initFontSelector();
     initHeroEntrance();
     initScrollReveal();

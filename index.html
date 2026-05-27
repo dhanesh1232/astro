@@ -22,256 +22,23 @@
     <style>
       /* ─── DESIGN TOKENS ─────────────────────────────────────────── */
       :root {
-        --primary: #f5a623;
-        --primary-dark: #c47f00;
-        --primary-glow: rgba(245, 166, 35, 0.25);
-        --secondary: #2e7d32;
-        --secondary-dark: #1b5e20;
+        --primary: #fdd835;
+        --primary-dark: #fbc02d;
+        --primary-glow: rgba(253, 216, 53, 0.25);
+        --secondary: #1b5e20;
+        --secondary-dark: #145216;
         --bg: #ffffff;
-        --text: #1a1a1a;
-        --text-muted: #6b7280;
-        --soft: #fffbf0;
-        --soft-2: #fef9ec;
+        --text: #1b5e20;
+        --text-muted: #4a7c50;
+        --soft: #ffffff;
+        --soft-2: #ffffff;
         --card-bg: #ffffff;
         --card-border: #eeeeee;
+        --card-shadow: 0 2px 12px rgba(253, 216, 53, 0.15);
         --font-heading: "Cinzel", serif;
         --font-body: "Lato", sans-serif;
         --radius-card: 0px;
         --transition: all 0.25s ease;
-      }
-
-      /* ─── DARK THEME ─────────────────────────────────────────────── */
-      [data-theme="dark"] {
-        --bg: #111111;
-        --text: #f0f0f0;
-        --text-muted: #9ca3af;
-        --soft: #1a1a1a;
-        --soft-2: #181818;
-        --card-bg: #1e1e1e;
-        --card-border: #2a2a2a;
-      }
-      [data-theme="dark"] .nav {
-        background: rgba(17, 17, 17, 0.95);
-        border-color: var(--primary);
-      }
-      [data-theme="dark"] .nav-links a {
-        color: #ddd;
-      }
-      [data-theme="dark"] .nav-links a:hover,
-      [data-theme="dark"] .nav-links a.active {
-        color: var(--primary);
-      }
-      [data-theme="dark"] .nav-logo {
-        color: #eee;
-      }
-      [data-theme="dark"] .service-card,
-      [data-theme="dark"] .price-card,
-      [data-theme="dark"] .testimonial {
-        background: var(--card-bg);
-        border-color: var(--card-border);
-        color: #ddd;
-      }
-      [data-theme="dark"] .service-card h3 {
-        color: #f0f0f0;
-      }
-      [data-theme="dark"] .price-card h3 {
-        color: #f0f0f0;
-      }
-      [data-theme="dark"] .testimonial .name {
-        color: var(--primary);
-      }
-      [data-theme="dark"] .section-header h2 {
-        color: #f0f0f0;
-      }
-      [data-theme="dark"] .section-header .tag {
-        color: var(--primary);
-        border-color: var(--primary);
-      }
-      [data-theme="dark"] .hero {
-        background: #0d0d0d;
-      }
-      [data-theme="dark"] .hero-text h1 {
-        color: #fff;
-      }
-      [data-theme="dark"] .hero-text h1 em {
-        color: var(--primary);
-      }
-      [data-theme="dark"] .hero-label {
-        color: var(--primary);
-        border-color: var(--primary);
-      }
-      [data-theme="dark"] .btn-outline {
-        color: var(--primary);
-        border-color: var(--primary);
-      }
-      [data-theme="dark"] .btn-outline:hover {
-        background: var(--primary);
-        color: #111;
-      }
-      [data-theme="dark"] .btn-white {
-        background: var(--primary);
-        color: #111;
-        border-color: var(--primary);
-      }
-      [data-theme="dark"] .btn-white:hover {
-        background: var(--primary-dark);
-        border-color: var(--primary-dark);
-      }
-      [data-theme="dark"] .step h4 {
-        color: #eee;
-      }
-      [data-theme="dark"] .step p {
-        color: #999;
-      }
-      [data-theme="dark"] .stat-item .label {
-        color: rgba(255, 255, 255, 0.6);
-      }
-      [data-theme="dark"] .price-card .amount {
-        color: #fff;
-      }
-      [data-theme="dark"] .price-card .badge {
-        color: #111;
-      }
-      [data-theme="dark"] .price-card ul li {
-        color: #bbb;
-        border-color: #2a2a2a;
-      }
-      [data-theme="dark"] .testimonial p {
-        color: #aaa;
-      }
-      [data-theme="dark"] .testimonial .loc {
-        color: #888;
-      }
-      [data-theme="dark"] .testimonial .stars {
-        color: var(--primary);
-      }
-      [data-theme="dark"] .trust-item h4 {
-        color: var(--primary);
-      }
-      [data-theme="dark"] .trust-item p {
-        color: #999;
-      }
-      [data-theme="dark"] .trust-icon {
-        border-color: var(--primary);
-        color: var(--primary);
-      }
-      [data-theme="dark"] .cta-banner {
-        background: #1a1a1a;
-        border-color: #2a2a2a;
-      }
-      [data-theme="dark"] .cta-banner h2 {
-        color: #f0f0f0;
-      }
-      [data-theme="dark"] .cta-banner p {
-        color: #999;
-      }
-      [data-theme="dark"] .lucky-phone {
-        background: rgba(255, 255, 255, 0.04);
-        border-color: rgba(255, 255, 255, 0.1);
-      }
-      [data-theme="dark"] .footer {
-        background: #050505;
-      }
-      [data-theme="dark"] .payment-bar {
-        color: #111;
-      }
-      [data-theme="dark"] .stats-bar {
-        background: #1b5e20;
-      }
-      [data-theme="dark"] .toolbar {
-        background: #1a1a1a;
-        border-color: #2a2a2a;
-      }
-      [data-theme="dark"] .toolbar select {
-        background: #222;
-        color: #eee;
-        border-color: #333;
-      }
-      [data-theme="dark"] .toolbar label {
-        color: #999;
-      }
-      [data-theme="dark"] .menu-btn {
-        color: var(--primary);
-      }
-      [data-theme="dark"] .gold-divider {
-        background: var(--primary);
-      }
-      [data-theme="dark"] .faq-section-inner {
-        background: transparent;
-      }
-      [data-theme="dark"] .faq-item {
-        background: #1a1a1a;
-        border-color: #2a2a2a;
-      }
-      [data-theme="dark"] .faq-item:hover {
-        border-color: #3a3a3a;
-      }
-      [data-theme="dark"] .faq-item.open {
-        background: #1e1e1e;
-        border-color: var(--primary);
-      }
-      [data-theme="dark"] .faq-q {
-        color: #f0f0f0;
-      }
-      [data-theme="dark"] .faq-q:hover {
-        color: var(--primary);
-      }
-      [data-theme="dark"] .faq-num {
-        background: #2a2a2a;
-        color: #555;
-      }
-      [data-theme="dark"] .faq-item.open .faq-num {
-        background: var(--primary);
-        color: #111;
-      }
-      [data-theme="dark"] .faq-a {
-        color: #999;
-        border-color: #2a2a2a;
-      }
-      [data-theme="dark"] .faq-cta-panel {
-        background: linear-gradient(160deg, #1a1a0a 0%, #111111 100%);
-        border-color: rgba(245, 166, 35, 0.15);
-      }
-      [data-theme="dark"] .faq-cta-panel h3 {
-        color: #f0f0f0;
-      }
-      [data-theme="dark"] .faq-cta-panel p {
-        color: #888;
-      }
-      [data-theme="dark"] .faq-cta-badge {
-        border-color: rgba(245, 166, 35, 0.2);
-      }
-      [data-theme="dark"] .media-bar {
-        background: #181818;
-        border-color: #2a2a2a;
-      }
-      [data-theme="dark"] .media-bar span {
-        color: #555;
-      }
-      [data-theme="dark"] .media-logo {
-        color: #444;
-      }
-      [data-theme="dark"] .social-proof {
-        background: rgba(245, 166, 35, 0.08);
-        border-color: rgba(245, 166, 35, 0.25);
-      }
-      [data-theme="dark"] .lucky-calc {
-        background: rgba(255, 255, 255, 0.04);
-        border-color: rgba(255, 255, 255, 0.1);
-      }
-      [data-theme="dark"] .lucky-result {
-        background: rgba(245, 166, 35, 0.1);
-        border-color: rgba(245, 166, 35, 0.25);
-      }
-      [data-theme="dark"] .step-num {
-        border-color: #222;
-      }
-      [data-theme="dark"] .steps::before {
-        background: var(--primary);
-        opacity: 0.4;
-      }
-      [data-theme="dark"] .footer-col h4 {
-        color: var(--primary);
       }
 
       /* ─── RESET ──────────────────────────────────────────────────── */
@@ -312,9 +79,73 @@
         padding: 0 24px;
       }
 
+      /* ─── DEMO SWITCHER BAR ──────────────────────────────────────── */
+      .demo-switcher-bar {
+        background: #ffffff;
+        border-bottom: 2px solid var(--primary);
+        padding: 8px 0;
+        font-size: 0.78rem;
+        position: relative;
+        z-index: 200;
+      }
+      .demo-switcher-bar.hidden {
+        display: none;
+      }
+      .demo-switcher-bar .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .demo-switcher-label {
+        font-weight: 700;
+        color: var(--text-muted);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        white-space: nowrap;
+      }
+      .demo-switch-links {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        flex-wrap: wrap;
+      }
+      .demo-switch-link {
+        padding: 5px 14px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--text);
+        border: 1.5px solid transparent;
+        border-radius: 2px;
+        transition: all 0.2s;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+      }
+      .demo-switch-link:hover {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+      }
+      .demo-switch-link.active {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+      }
+      .demo-switch-link.back-link {
+        color: var(--secondary);
+        border-color: var(--secondary);
+      }
+      .demo-switch-link.back-link:hover {
+        background: var(--secondary);
+        color: #fff;
+      }
+
       /* ─── TOOLBAR ────────────────────────────────────────────────── */
       .toolbar {
-        background: #f9fafb;
+        background: #ffffff;
         border-bottom: 1px solid #eee;
         padding: 10px 0;
         font-size: 0.8rem;
@@ -356,23 +187,6 @@
         display: flex;
         align-items: center;
         gap: 12px;
-      }
-      #theme-toggle {
-        width: 36px;
-        height: 36px;
-        border: 2px solid var(--primary);
-        background: transparent;
-        color: var(--primary);
-        font-size: 1.1rem;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: var(--transition);
-      }
-      #theme-toggle:hover {
-        background: var(--primary);
-        color: var(--text);
       }
       .wa-nav-btn {
         display: inline-flex;
@@ -449,7 +263,7 @@
       }
       .nav-links .cta {
         background: var(--primary);
-        color: #fff;
+        color: var(--secondary);
         font-weight: 700;
         padding: 10px 26px;
         border: 2px solid var(--primary);
@@ -494,9 +308,6 @@
         text-align: center;
         margin-top: 8px;
       }
-      [data-theme="dark"] .nav-links.nav-open a {
-        border-color: rgba(255, 255, 255, 0.06);
-      }
       @keyframes slideDown {
         from {
           opacity: 0;
@@ -522,7 +333,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%23f5a623' opacity='0.35'/%3E%3Ccircle cx='120' cy='80' r='1' fill='%23f5a623' opacity='0.25'/%3E%3Ccircle cx='200' cy='30' r='2' fill='%23f5a623' opacity='0.2'/%3E%3Ccircle cx='320' cy='60' r='1.2' fill='%23f5a623' opacity='0.3'/%3E%3Ccircle cx='370' cy='120' r='1.5' fill='%23f5a623' opacity='0.2'/%3E%3Ccircle cx='60' cy='160' r='1' fill='%23f5a623' opacity='0.25'/%3E%3Ccircle cx='160' cy='200' r='1.8' fill='%23f5a623' opacity='0.15'/%3E%3Ccircle cx='280' cy='180' r='1' fill='%23f5a623' opacity='0.3'/%3E%3Ccircle cx='350' cy='260' r='1.5' fill='%23f5a623' opacity='0.2'/%3E%3Ccircle cx='90' cy='300' r='1.2' fill='%23f5a623' opacity='0.25'/%3E%3Ccircle cx='220' cy='340' r='1' fill='%23f5a623' opacity='0.2'/%3E%3Ccircle cx='310' cy='380' r='2' fill='%23f5a623' opacity='0.15'/%3E%3Ccircle cx='30' cy='380' r='1' fill='%23f5a623' opacity='0.3'/%3E%3Ccircle cx='380' cy='20' r='1.5' fill='%23f5a623' opacity='0.25'/%3E%3Ccircle cx='150' cy='120' r='1' fill='%23f5a623' opacity='0.2'/%3E%3Ccircle cx='260' cy='100' r='1.3' fill='%23f5a623' opacity='0.3'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%23FDD835' opacity='0.35'/%3E%3Ccircle cx='120' cy='80' r='1' fill='%23FDD835' opacity='0.25'/%3E%3Ccircle cx='200' cy='30' r='2' fill='%23FDD835' opacity='0.2'/%3E%3Ccircle cx='320' cy='60' r='1.2' fill='%23FDD835' opacity='0.3'/%3E%3Ccircle cx='370' cy='120' r='1.5' fill='%23FDD835' opacity='0.2'/%3E%3Ccircle cx='60' cy='160' r='1' fill='%23FDD835' opacity='0.25'/%3E%3Ccircle cx='160' cy='200' r='1.8' fill='%23FDD835' opacity='0.15'/%3E%3Ccircle cx='280' cy='180' r='1' fill='%23FDD835' opacity='0.3'/%3E%3Ccircle cx='350' cy='260' r='1.5' fill='%23FDD835' opacity='0.2'/%3E%3Ccircle cx='90' cy='300' r='1.2' fill='%23FDD835' opacity='0.25'/%3E%3Ccircle cx='220' cy='340' r='1' fill='%23FDD835' opacity='0.2'/%3E%3Ccircle cx='310' cy='380' r='2' fill='%23FDD835' opacity='0.15'/%3E%3Ccircle cx='30' cy='380' r='1' fill='%23FDD835' opacity='0.3'/%3E%3Ccircle cx='380' cy='20' r='1.5' fill='%23FDD835' opacity='0.25'/%3E%3Ccircle cx='150' cy='120' r='1' fill='%23FDD835' opacity='0.2'/%3E%3Ccircle cx='260' cy='100' r='1.3' fill='%23FDD835' opacity='0.3'/%3E%3C/svg%3E");
         background-size: 400px 400px;
         opacity: 1;
         pointer-events: none;
@@ -554,8 +365,8 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: rgba(245, 166, 35, 0.08);
-        border: 1px solid rgba(245, 166, 35, 0.3);
+        background: rgba(253, 216, 53, 0.08);
+        border: 1px solid rgba(253, 216, 53, 0.3);
         padding: 6px 14px;
         font-size: 0.78rem;
         font-weight: 700;
@@ -616,7 +427,7 @@
       }
       .btn-gold {
         background: var(--primary);
-        color: #fff;
+        color: var(--secondary);
         border-color: var(--primary);
         position: relative;
         overflow: hidden;
@@ -707,20 +518,17 @@
         position: relative;
         z-index: 2;
         border: 4px solid var(--primary);
-        box-shadow:
-          0 0 40px var(--primary-glow),
-          0 0 80px rgba(245, 166, 35, 0.1);
       }
       .mandala-ring {
         position: absolute;
         inset: 0;
         border-radius: 50%;
-        border: 1px solid rgba(245, 166, 35, 0.2);
+        border: 1px solid rgba(253, 216, 53, 0.2);
         animation: rotateRing 40s linear infinite;
       }
       .mandala-ring:nth-child(2) {
         inset: 20px;
-        border: 1px dashed rgba(245, 166, 35, 0.3);
+        border: 1px dashed rgba(253, 216, 53, 0.3);
         animation-duration: 60s;
         animation-direction: reverse;
       }
@@ -735,7 +543,6 @@
         height: 8px;
         background: var(--primary);
         border-radius: 50%;
-        box-shadow: 0 0 8px var(--primary);
       }
       /* Position dots around the outer ring */
       .mandala-dot:nth-child(3) {
@@ -798,7 +605,7 @@
 
       /* ─── MEDIA BAR ──────────────────────────────────────────────── */
       .media-bar {
-        background: #f9fafb;
+        background: #ffffff;
         border-top: 1px solid #eee;
         border-bottom: 1px solid #eee;
         padding: 18px 0;
@@ -890,8 +697,8 @@
       .service-card:hover {
         transform: translateY(-6px);
         box-shadow:
-          0 12px 40px rgba(245, 166, 35, 0.15),
-          0 2px 8px rgba(0, 0, 0, 0.06);
+          0 12px 40px rgba(253, 216, 53, 0.2),
+          0 2px 8px rgba(0, 0, 0, 0.04);
         border-color: #eee;
         border-top-color: var(--primary);
       }
@@ -911,7 +718,7 @@
           transform 0.3s;
       }
       .service-card:hover img {
-        box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.3);
+        box-shadow: 0 0 0 4px rgba(253, 216, 53, 0.3);
         transform: scale(1.04);
       }
       .service-card h3 {
@@ -1123,8 +930,8 @@
       .lucky-result {
         margin-top: 14px;
         padding: 14px 18px;
-        background: rgba(245, 166, 35, 0.1);
-        border: 1px solid rgba(245, 166, 35, 0.3);
+        background: rgba(253, 216, 53, 0.1);
+        border: 1px solid rgba(253, 216, 53, 0.3);
         display: none;
       }
       .lucky-result.show {
@@ -1164,7 +971,7 @@
       .price-card:hover {
         border-color: var(--primary);
         transform: translateY(-4px);
-        box-shadow: 0 12px 40px rgba(245, 166, 35, 0.12);
+        box-shadow: 0 12px 40px rgba(253, 216, 53, 0.12);
       }
       .price-card.featured {
         border: 2px solid var(--primary);
@@ -1180,7 +987,7 @@
           90deg,
           var(--primary-dark),
           var(--primary),
-          #ffc947
+          #ffeb3b
         );
       }
       .price-card .badge {
@@ -1339,13 +1146,13 @@
         color: var(--primary);
         border: 2px solid var(--primary);
         border-radius: 50%;
-        background: rgba(245, 166, 35, 0.05);
+        background: rgba(253, 216, 53, 0.05);
         transition:
           background 0.25s,
           transform 0.25s;
       }
       .trust-item:hover .trust-icon {
-        background: rgba(245, 166, 35, 0.12);
+        background: rgba(253, 216, 53, 0.12);
         transform: scale(1.08);
       }
       .trust-item h4 {
@@ -1360,7 +1167,7 @@
 
       /* ─── FAQ SECTION ────────────────────────────────────────────── */
       .faq-section {
-        background: var(--soft);
+        background: #ffffff;
       }
       .faq-layout {
         display: grid;
@@ -1387,12 +1194,12 @@
       }
       .faq-item:hover {
         border-color: #e0e0e0;
-        border-left-color: rgba(245, 166, 35, 0.4);
+        border-left-color: rgba(253, 216, 53, 0.4);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       }
       .faq-item.open {
         border-left-color: var(--primary);
-        box-shadow: 0 6px 28px rgba(245, 166, 35, 0.1);
+        box-shadow: 0 6px 28px rgba(253, 216, 53, 0.1);
       }
       .faq-q {
         width: 100%;
@@ -1483,8 +1290,8 @@
       }
       /* CTA panel */
       .faq-cta-panel {
-        background: linear-gradient(160deg, #fffbea 0%, #fff9ef 100%);
-        border: 1px solid rgba(245, 166, 35, 0.2);
+        background: linear-gradient(160deg, #ffffff 0%, #ffffff 100%);
+        border: 1px solid rgba(253, 216, 53, 0.2);
         padding: 36px 28px;
         position: sticky;
         top: 100px;
@@ -1496,7 +1303,7 @@
         margin-bottom: 16px;
         width: 64px;
         height: 64px;
-        border: 2px solid rgba(245, 166, 35, 0.3);
+        border: 2px solid rgba(253, 216, 53, 0.3);
         border-radius: 50%;
         line-height: 60px;
       }
@@ -1537,7 +1344,7 @@
 
       /* ─── CTA BANNER ─────────────────────────────────────────────── */
       .cta-banner {
-        background: var(--soft-2);
+        background: #ffffff;
         padding: 80px 0;
         text-align: center;
         border-top: 1px solid #eee;
@@ -1783,49 +1590,127 @@
           justify-content: center;
           text-align: center;
         }
+        .demo-switcher-label {
+          display: none;
+        }
         .toolbar .container {
-          justify-content: center;
+          flex-wrap: wrap;
+          gap: 10px;
         }
         .toolbar-left {
           justify-content: center;
         }
       }
+
+      /* ─── MODAL ──────────────────────────────────────────────────── */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        animation: fadeIn 0.2s ease;
+      }
+      .modal-overlay.active {
+        display: flex;
+      }
+      .modal {
+        background: var(--bg);
+        max-width: 560px;
+        width: 100%;
+        max-height: 85vh;
+        overflow-y: auto;
+        padding: 48px 40px;
+        position: relative;
+        border-top: 4px solid var(--primary);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        animation: slideUp 0.3s ease;
+      }
+      .modal-close {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 1.6rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+      .modal-close:hover {
+        color: var(--secondary);
+      }
+      .modal h3 {
+        font-size: 1.5rem;
+        color: var(--secondary);
+        margin-bottom: 16px;
+      }
+      .modal p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        line-height: 1.8;
+        margin-bottom: 16px;
+      }
+      .modal ul {
+        list-style: none;
+        margin-bottom: 24px;
+      }
+      .modal ul li {
+        padding: 8px 0;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        border-bottom: 1px solid #f0f0f0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .modal ul li::before {
+        content: "\2713";
+        color: var(--secondary);
+        font-weight: 700;
+      }
+      .modal .btn {
+        margin-top: 8px;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
   </head>
   <body>
-    <!-- TOOLBAR: Theme + Font Selection -->
-    <div class="toolbar">
+    <!-- DEMO SWITCHER BAR -->
+    <div class="demo-switcher-bar toolbar">
       <div class="container">
-        <div class="toolbar-left">
-          <div>
-            <label for="font-heading">Heading Font:</label>
-            <select id="font-heading">
-              <option value="'Cinzel', serif">Cinzel (Default)</option>
-            </select>
-          </div>
-          <div>
-            <label for="font-body">Body Font:</label>
-            <select id="font-body">
-              <option value="'Lato', sans-serif">Lato (Default)</option>
-            </select>
-          </div>
-        </div>
-        <div class="toolbar-right">
-          <!-- PLACEHOLDER: Replace 919999999999 with client's WhatsApp number -->
-          <a
-            href="https://wa.me/919999999999"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="wa-nav-btn"
+        <span class="demo-switcher-label">&#9789; Demo Designs:</span>
+        <div class="demo-switch-links">
+          <span class="demo-switch-link active">&#10003; Main Site</span>
+          <a href="demo-1.html" class="demo-switch-link"
+            >Demo 1 — Classic Elegant</a
           >
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
-              />
-            </svg>
-            WhatsApp
-          </a>
-          <button id="theme-toggle" title="Switch to Dark">&#9789;</button>
+          <a href="demo-2.html" class="demo-switch-link"
+            >Demo 2 — Modern Minimal</a
+          >
+          <a href="demo-3.html" class="demo-switch-link"
+            >Demo 3 — Bold &amp; Spiritual</a
+          >
         </div>
       </div>
     </div>
@@ -1842,7 +1727,7 @@
           <a href="#how-it-works">How It Works</a>
           <a href="#testimonials">Reviews</a>
           <a href="#faq">FAQ</a>
-          <a href="#book" class="cta btn">Book Now</a>
+          <a href="#how-it-works" class="cta btn">Book Now</a>
         </nav>
         <button
           class="menu-btn"
@@ -1871,11 +1756,26 @@
             Unlock the Secrets<br />of Your <em>Stars</em>
           </h1>
           <p class="hero-enter" style="transition-delay: 0.42s">
-            Personalized cosmic guidance rooted in 5,000 years of Vedic
-            tradition. Discover your destiny through ancient planetary wisdom.
+            Personalized Vedic birth chart readings, numerology analysis, and
+            lucky number consultations — delivered within 24 hours. Trusted by
+            500+ clients across the US, UK, Australia, Canada &amp; India.
+          </p>
+          <p
+            class="hero-enter"
+            style="
+              transition-delay: 0.5s;
+              font-size: 0.9rem;
+              opacity: 0.75;
+              margin-bottom: 28px;
+            "
+          >
+            &#10003; Birth Chart &amp; Kundali Analysis &nbsp;&bull;&nbsp;
+            &#10003; Numerology &amp; Name Correction &nbsp;&bull;&nbsp;
+            &#10003; Lucky Mobile &amp; Bank Numbers &nbsp;&bull;&nbsp; &#10003;
+            Yearly Forecast &amp; Remedies
           </p>
           <div class="hero-btns hero-enter" style="transition-delay: 0.56s">
-            <a href="#book" class="btn btn-gold btn-shimmer"
+            <a href="#how-it-works" class="btn btn-gold btn-shimmer"
               >Book Consultation</a
             >
             <a href="#lucky-number" class="btn btn-outline">Get Lucky Number</a>
@@ -1958,7 +1858,12 @@
               based on your Jathakam. Understand how planetary positions govern
               your destiny.
             </p>
-            <span class="service-tag">Learn More →</span>
+            <span
+              class="service-tag"
+              onclick="openModal('modal-vedic')"
+              style="cursor: pointer"
+              >Learn More →</span
+            >
           </div>
           <div class="service-card reveal">
             <div class="service-icon-wrap">
@@ -1973,7 +1878,12 @@
               hidden vibrations in your name and birth date that silently shape
               your journey.
             </p>
-            <span class="service-tag">Learn More →</span>
+            <span
+              class="service-tag"
+              onclick="openModal('modal-numerology')"
+              style="cursor: pointer"
+              >Learn More →</span
+            >
           </div>
           <div class="service-card reveal">
             <div class="service-icon-wrap">
@@ -2001,32 +1911,34 @@
           <div class="tag">Simple Process</div>
           <div class="gold-divider"></div>
           <h2>How It Works</h2>
-          <p>Four easy steps to unlock your personalized cosmic guidance</p>
+          <p>Four steps to begin your cosmic journey — start with Good Karma</p>
         </div>
         <div class="steps reveal">
           <div class="step">
             <div class="step-num">1</div>
-            <span class="step-emoji">📋</span>
-            <h4>Share Your Details</h4>
-            <p>Date, time &amp; place of birth</p>
+            <span class="step-emoji">�</span>
+            <h4>Do Good Karma</h4>
+            <p>
+              Donate to a charity — Goshala, Orphanage, Blind School or more
+            </p>
           </div>
           <div class="step">
             <div class="step-num">2</div>
-            <span class="step-emoji">🔭</span>
-            <h4>Birth Chart Analysis</h4>
-            <p>Deep planetary study &amp; Jathakam reading</p>
+            <span class="step-emoji">🎫</span>
+            <h4>Get Your Donation ID</h4>
+            <p>Receive a confirmation ID from the charity source</p>
           </div>
           <div class="step">
             <div class="step-num">3</div>
-            <span class="step-emoji">📄</span>
-            <h4>Personalized Report</h4>
-            <p>Detailed PDF delivered to your inbox</p>
+            <span class="step-emoji">�</span>
+            <h4>Fill the Form</h4>
+            <p>Enter your birth details, donation ID &amp; contact info</p>
           </div>
           <div class="step">
             <div class="step-num">4</div>
-            <span class="step-emoji">✅</span>
-            <h4>Secure Payment</h4>
-            <p>Pay only after you're completely satisfied</p>
+            <span class="step-emoji">📅</span>
+            <h4>Book Appointment</h4>
+            <p>Get your personalized reading within 24 hours</p>
           </div>
         </div>
       </div>
@@ -2044,7 +1956,7 @@
             account. Used by 500+ clients across the US, UK, Australia, Canada
             and beyond.
           </p>
-          <a href="#book" class="btn btn-white"
+          <a href="#how-it-works" class="btn btn-white"
             >Request Lucky Number Analysis</a
           >
         </div>
@@ -2079,80 +1991,6 @@
               <div class="result-num" id="result-num"></div>
               <div class="result-label" id="result-label"></div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRICING -->
-    <section class="section" id="book" style="background: var(--soft)">
-      <div class="container">
-        <div class="section-header">
-          <div class="tag">Pricing</div>
-          <div class="gold-divider"></div>
-          <h2>Choose Your Consultation</h2>
-          <p>
-            Transparent pricing. No hidden charges. Pay only when satisfied.
-          </p>
-        </div>
-        <div class="pricing-grid">
-          <div class="price-card reveal">
-            <h3>Basic Report</h3>
-            <div class="amount">$29</div>
-            <span class="amount-old">$49</span>
-            <ul>
-              <li>Written Birth Chart PDF</li>
-              <li>3 key life predictions</li>
-              <li>Email delivery within 48 hrs</li>
-              <li>One follow-up question</li>
-            </ul>
-            <a
-              href="https://wa.me/919999999999?text=Hi%2C%20I'd%20like%20to%20book%20the%20Basic%20Report"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-green"
-              style="width: 100%; text-align: center; display: block"
-              >Book Now</a
-            >
-          </div>
-          <div class="price-card featured reveal">
-            <div class="badge">Most Popular</div>
-            <h3>Full Consultation</h3>
-            <div class="amount">$79</div>
-            <span class="amount-old">$120</span>
-            <ul>
-              <li>45-min video call with Lakshmi</li>
-              <li>Full natal chart PDF report</li>
-              <li>Lucky number analysis included</li>
-              <li>7-day WhatsApp support</li>
-            </ul>
-            <a
-              href="https://wa.me/919999999999?text=Hi%2C%20I'd%20like%20to%20book%20the%20Full%20Consultation"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-gold btn-shimmer"
-              style="width: 100%; text-align: center; display: block"
-              >Book Now</a
-            >
-          </div>
-          <div class="price-card reveal">
-            <h3>Premium Package</h3>
-            <div class="amount">$149</div>
-            <span class="amount-old">$200</span>
-            <ul>
-              <li>60-min deep-dive video call</li>
-              <li>Full report + yearly forecast</li>
-              <li>Remedies &amp; gemstone advice</li>
-              <li>30-day ongoing support</li>
-            </ul>
-            <a
-              href="https://wa.me/919999999999?text=Hi%2C%20I'd%20like%20to%20book%20the%20Premium%20Package"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-green"
-              style="width: 100%; text-align: center; display: block"
-              >Book Now</a
-            >
           </div>
         </div>
       </div>
@@ -2406,7 +2244,7 @@
                 Or book directly
               </div>
               <a
-                href="#book"
+                href="#how-it-works"
                 class="btn btn-gold btn-shimmer"
                 style="display: block; text-align: center"
                 >Book a Reading</a
@@ -2426,7 +2264,7 @@
           Book a personalized consultation today and let the stars guide your
           path forward. Limited slots available each month.
         </p>
-        <a href="#book" class="btn btn-gold btn-shimmer"
+        <a href="#how-it-works" class="btn btn-gold btn-shimmer"
           >Book Your Reading Now</a
         >
       </div>
@@ -2477,7 +2315,7 @@
               <li><a href="#home">Home</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#how-it-works">How It Works</a></li>
-              <li><a href="#book">Pricing</a></li>
+              <li><a href="#services">Services</a></li>
               <li><a href="#testimonials">Reviews</a></li>
               <li><a href="#faq">FAQ</a></li>
             </ul>
@@ -2488,7 +2326,14 @@
               <li><a href="#services">Vedic Astrology</a></li>
               <li><a href="#services">Numerology</a></li>
               <li><a href="#lucky-number">Lucky Number Consultation</a></li>
-              <li><a href="#book">Book a Reading</a></li>
+              <li>
+                <a
+                  href="https://wa.me/919999999999?text=Hi%2C%20I'd%20like%20to%20book%20a%20reading"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Book a Reading</a
+                >
+              </li>
             </ul>
           </div>
         </div>
@@ -2504,7 +2349,6 @@
     </footer>
 
     <!-- WHATSAPP FLOATING BUTTON -->
-    <!-- PLACEHOLDER: Replace 919999999999 with client's WhatsApp number -->
     <a
       href="https://wa.me/919999999999"
       target="_blank"
@@ -2616,31 +2460,6 @@
             googleParam +
             "&display=swap";
           document.head.appendChild(link);
-        }
-
-        // ─── THEME TOGGLE ─────────────────────────────────────────────
-        function setTheme(mode) {
-          document.documentElement.setAttribute("data-theme", mode);
-          localStorage.setItem("jl-theme", mode);
-          var btn = document.getElementById("theme-toggle");
-          if (btn) {
-            btn.textContent = mode === "dark" ? "☀" : "☽";
-            btn.title = mode === "dark" ? "Switch to Light" : "Switch to Dark";
-          }
-        }
-        function initTheme() {
-          var saved = localStorage.getItem("jl-theme") || "light";
-          setTheme(saved);
-          var btn = document.getElementById("theme-toggle");
-          if (btn) {
-            btn.addEventListener("click", function () {
-              setTheme(
-                document.documentElement.getAttribute("data-theme") === "dark"
-                  ? "light"
-                  : "dark",
-              );
-            });
-          }
         }
 
         // ─── FONT SELECTOR ────────────────────────────────────────────
@@ -2931,7 +2750,6 @@
 
         // ─── INIT ─────────────────────────────────────────────────────
         document.addEventListener("DOMContentLoaded", function () {
-          initTheme();
           initFontSelector();
           initHeroEntrance();
           initScrollReveal();
@@ -2942,6 +2760,120 @@
           initLuckyCalc();
         });
       })();
+    </script>
+
+    <!-- ─── MODALS ─────────────────────────────────────────────────── -->
+    <div class="modal-overlay" id="modal-vedic">
+      <div class="modal">
+        <button class="modal-close" onclick="closeModal('modal-vedic')">
+          &times;
+        </button>
+        <h3>Vedic Astrology Reading</h3>
+        <p>
+          A comprehensive analysis of your birth chart (Kundali) using the
+          ancient Parashari system. We study all 12 houses, planetary positions,
+          Dashas, and divisional charts to give you deep insight into your life
+          path.
+        </p>
+        <ul>
+          <li>Complete natal chart (Rashi + Navamsa)</li>
+          <li>Planetary period (Dasha) analysis</li>
+          <li>Career, relationships &amp; health predictions</li>
+          <li>Favorable &amp; unfavorable periods ahead</li>
+          <li>Remedies &amp; gemstone recommendations</li>
+        </ul>
+        <a
+          href="#how-it-works"
+          class="btn btn-gold"
+          onclick="closeModal('modal-vedic')"
+          >Book This Reading</a
+        >
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-numerology">
+      <div class="modal">
+        <button class="modal-close" onclick="closeModal('modal-numerology')">
+          &times;
+        </button>
+        <h3>Numerology Analysis</h3>
+        <p>
+          Discover the hidden power of numbers in your life. We analyze your
+          name, birth date, and key numbers to reveal your life path, destiny,
+          and soul urge numbers.
+        </p>
+        <ul>
+          <li>Life Path Number calculation</li>
+          <li>Destiny &amp; Soul Urge numbers</li>
+          <li>Name vibration analysis</li>
+          <li>Lucky colors, days &amp; directions</li>
+          <li>Name correction suggestions (if needed)</li>
+        </ul>
+        <a
+          href="#how-it-works"
+          class="btn btn-gold"
+          onclick="closeModal('modal-numerology')"
+          >Book This Reading</a
+        >
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-lucky">
+      <div class="modal">
+        <button class="modal-close" onclick="closeModal('modal-lucky')">
+          &times;
+        </button>
+        <h3>Lucky Number Consultation</h3>
+        <p>
+          Get the most auspicious phone number and bank account number based on
+          your birth chart and ruling planet. Numbers carry energy — align yours
+          with cosmic vibrations.
+        </p>
+        <ul>
+          <li>Lucky mobile number selection</li>
+          <li>Auspicious bank account digits</li>
+          <li>Vehicle number recommendations</li>
+          <li>House/flat number analysis</li>
+          <li>Based on your ruling planet &amp; birth chart</li>
+        </ul>
+        <a
+          href="#how-it-works"
+          class="btn btn-gold"
+          onclick="closeModal('modal-lucky')"
+          >Book This Reading</a
+        >
+      </div>
+    </div>
+
+    <script>
+      function openModal(id) {
+        document.getElementById(id).classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+      function closeModal(id) {
+        document.getElementById(id).classList.remove("active");
+        document.body.style.overflow = "";
+      }
+      // Close on overlay click
+      document.querySelectorAll(".modal-overlay").forEach(function (el) {
+        el.addEventListener("click", function (e) {
+          if (e.target === el) {
+            el.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        });
+      });
+      // Close on Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          document
+            .querySelectorAll(".modal-overlay.active")
+            .forEach(function (el) {
+              el.classList.remove("active");
+            });
+          document.body.style.overflow = "";
+        }
+      });
     </script>
   </body>
 </html>

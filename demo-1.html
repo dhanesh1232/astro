@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Demo 1 — Classic Elegant | Jyotish by Lakshmi</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: { emerald: "#1B5E20", golden: "#FDD835", goldenHover: "#FBC02D" },
+      fontFamily: { heading: ["Cinzel", "serif"], body: ["Lato", "sans-serif"] },
+    },
+  },
+};
+</script>
+<style>
+body { font-family: "Lato", sans-serif; color: #1b5e20; opacity: 0; transition: opacity 0.6s ease; }
+body.loaded { opacity: 1; }
+h1,h2,h3,h4,h5,h6 { font-family: "Cinzel", serif; color: #1b5e20; }
+.timeline-connector { width: 2px; background: repeating-linear-gradient(to bottom, #1b5e20 0px, #1b5e20 6px, transparent 6px, transparent 12px); }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.nav-link { position: relative; }
+.nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #FDD835; transition: width 0.3s ease; }
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.nav-link.active { font-weight: 700; }
+.faq-item .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-item.open .faq-answer { max-height: 300px; }
+.faq-item.open { border-left: 4px solid #FDD835; }
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; align-items: center; justify-content: center; }
+.modal-overlay.show { display: flex; }
+</style>
+</head>
+<body class="bg-white">
+<!-- DEMO SWITCHER BAR -->
+<div class="w-full bg-white border-b-2 border-golden py-3 px-6 flex flex-wrap items-center justify-between gap-2 text-xs">
+  <span class="font-heading text-emerald font-semibold uppercase tracking-widest">☽ Demo Designs:</span>
+  <div class="flex flex-wrap items-center gap-2">
+    <a href="index.html" class="px-4 py-1.5 border border-golden text-emerald font-bold hover:bg-golden transition">Main Site</a>
+    <span class="px-4 py-1.5 bg-golden text-emerald font-bold">✓ Demo 1</span>
+    <a href="demo-2.html" class="px-4 py-1.5 border border-golden text-emerald font-bold hover:bg-golden transition">Demo 2</a>
+    <a href="demo-3.html" class="px-4 py-1.5 border border-golden text-emerald font-bold hover:bg-golden transition">Demo 3</a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="sticky top-0 z-50 bg-white border-b-2 border-golden">
+  <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="#" class="font-heading text-2xl font-semibold text-emerald">☽ Jyotish by Lakshmi</a>
+    <div class="hidden md:flex items-center gap-10">
+      <a href="#home" class="nav-link font-body text-emerald font-medium transition">Home</a>
+      <a href="#services" class="nav-link font-body text-emerald font-medium transition">Services</a>
+      <a href="#how-it-works" class="nav-link font-body text-emerald font-medium transition">How It Works</a>
+      <a href="#karma" class="nav-link font-body text-emerald font-medium transition">Good Karma</a>
+      <a href="#reviews" class="nav-link font-body text-emerald font-medium transition">Reviews</a>
+      <a href="#karma" class="bg-golden hover:bg-goldenHover text-emerald font-bold px-7 py-2.5 transition hover:-translate-y-0.5">Book Now</a>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden text-emerald"><i data-lucide="menu" class="w-7 h-7"></i></button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t-2 border-golden px-6 pb-6">
+    <a href="#home" class="mobile-nav-link block py-3 text-emerald font-medium">Home</a>
+    <a href="#services" class="mobile-nav-link block py-3 text-emerald font-medium">Services</a>
+    <a href="#how-it-works" class="mobile-nav-link block py-3 text-emerald font-medium">How It Works</a>
+    <a href="#karma" class="mobile-nav-link block py-3 text-emerald font-medium">Good Karma</a>
+    <a href="#reviews" class="mobile-nav-link block py-3 text-emerald font-medium">Reviews</a>
+    <a href="#karma" class="mobile-nav-link block mt-3 bg-golden hover:bg-goldenHover text-emerald font-bold px-7 py-3 text-center transition">Book Now</a>
+  </div>
+</nav>
+<!-- HERO — Split Layout -->
+<section id="home" class="bg-white py-20 md:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-emerald mb-6 leading-tight">Do Good.<br>Know Your Stars.</h1>
+        <p class="font-body text-lg md:text-xl text-emerald/80 mb-10 leading-relaxed">Unlock the wisdom of Vedic astrology with personalized readings rooted in ancient tradition. Your stars hold the answers — let us guide you to clarity and purpose.</p>
+        <div class="flex flex-col sm:flex-row gap-4 mb-12">
+          <a href="#karma" class="bg-golden hover:bg-goldenHover text-emerald font-bold px-8 py-4 text-lg text-center transition hover:-translate-y-0.5">Start with Good Karma</a>
+          <a href="#services" class="border-2 border-golden text-emerald font-bold px-8 py-4 text-lg text-center hover:bg-golden transition hover:-translate-y-0.5">Explore Services</a>
+        </div>
+        <div class="flex flex-wrap gap-8 md:gap-12">
+          <div><p class="font-heading text-2xl md:text-3xl font-bold text-emerald">500+</p><p class="font-body text-sm text-emerald/70">Happy Clients</p></div>
+          <div><p class="font-heading text-2xl md:text-3xl font-bold text-emerald">15+</p><p class="font-body text-sm text-emerald/70">Years Experience</p></div>
+          <div><p class="font-heading text-2xl md:text-3xl font-bold text-emerald">20+</p><p class="font-body text-sm text-emerald/70">Countries Served</p></div>
+        </div>
+      </div>
+      <div class="flex justify-center md:justify-end reveal">
+        <img src="images/hero-portrait-demo1.png" alt="Goddess Lakshmi - Divine Guidance" class="w-full max-w-md md:max-w-lg object-cover border-4 border-golden transition-transform duration-300 hover:scale-[1.02]" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF STRIP -->
+<div class="bg-white py-4 border-y border-golden/30">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <p class="font-body text-sm text-emerald/70">Trusted by clients in &nbsp; 🇺🇸 &nbsp; 🇬🇧 &nbsp; 🇦🇺 &nbsp; 🇨🇦 &nbsp; 🇮🇳 &nbsp; 🇦🇪 &nbsp; 🇸🇬</p>
+  </div>
+</div>
+<!-- SERVICES -->
+<section id="services" class="bg-white py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="reveal">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-emerald text-center mb-6">Our Services</h2>
+      <p class="font-body text-emerald/80 text-center max-w-2xl mx-auto mb-16">Ancient wisdom meets modern guidance. Choose the service that resonates with your journey.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10 reveal">
+      <div class="bg-white border border-transparent hover:border-golden border-t-4 !border-t-golden p-10 transition-all duration-300">
+        <div class="mb-6 text-emerald"><i data-lucide="star" class="w-12 h-12"></i></div>
+        <h3 class="font-heading text-xl font-semibold text-emerald mb-4">Vedic Astrology</h3>
+        <p class="font-body text-emerald/80">Comprehensive birth chart analysis using ancient Vedic methods. Understand your life path, career, relationships, and spiritual journey through the stars.</p>
+      </div>
+      <div class="bg-white border border-transparent hover:border-golden border-t-4 !border-t-golden p-10 transition-all duration-300">
+        <div class="mb-6 text-emerald"><i data-lucide="hash" class="w-12 h-12"></i></div>
+        <h3 class="font-heading text-xl font-semibold text-emerald mb-4">Numerology</h3>
+        <p class="font-body text-emerald/80">Discover the hidden power of numbers in your life. From name corrections to business decisions, numerology reveals patterns that shape your destiny.</p>
+      </div>
+      <div class="bg-white border border-transparent hover:border-golden border-t-4 !border-t-golden p-10 transition-all duration-300">
+        <div class="mb-6 text-emerald"><i data-lucide="phone" class="w-12 h-12"></i></div>
+        <h3 class="font-heading text-xl font-semibold text-emerald mb-4">Lucky Number Consultation</h3>
+        <p class="font-body text-emerald/80">Get your personalized lucky numbers for important decisions — phone numbers, vehicle plates, house numbers, and more aligned with your cosmic energy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="bg-white py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="reveal">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-emerald text-center mb-6">How It Works</h2>
+      <p class="font-body text-emerald/80 text-center max-w-2xl mx-auto mb-16">Four simple steps to unlock your cosmic guidance through good karma.</p>
+    </div>
+    <div class="max-w-3xl mx-auto reveal">
+      <div class="flex gap-8 mb-0">
+        <div class="flex flex-col items-center">
+          <div class="w-14 h-14 bg-golden flex items-center justify-center font-heading font-bold text-emerald text-xl flex-shrink-0">1</div>
+          <div class="flex-1 timeline-connector mt-2 mb-2"></div>
+        </div>
+        <div class="pt-3 pb-12">
+          <h3 class="font-heading text-xl font-semibold text-emerald mb-2">Do Good Karma</h3>
+          <p class="font-body text-emerald/80">Begin your journey by donating to a charity of your choice. Good karma opens the channel for accurate cosmic guidance.</p>
+        </div>
+      </div>
+      <div class="flex gap-8 mb-0">
+        <div class="flex flex-col items-center">
+          <div class="w-14 h-14 bg-golden flex items-center justify-center font-heading font-bold text-emerald text-xl flex-shrink-0">2</div>
+          <div class="flex-1 timeline-connector mt-2 mb-2"></div>
+        </div>
+        <div class="pt-3 pb-12">
+          <h3 class="font-heading text-xl font-semibold text-emerald mb-2">Get Donation ID</h3>
+          <p class="font-body text-emerald/80">Receive your donation confirmation ID from the charity source. This serves as your good karma receipt.</p>
+        </div>
+      </div>
+      <div class="flex gap-8 mb-0">
+        <div class="flex flex-col items-center">
+          <div class="w-14 h-14 bg-golden flex items-center justify-center font-heading font-bold text-emerald text-xl flex-shrink-0">3</div>
+          <div class="flex-1 timeline-connector mt-2 mb-2"></div>
+        </div>
+        <div class="pt-3 pb-12">
+          <h3 class="font-heading text-xl font-semibold text-emerald mb-2">Fill the Form</h3>
+          <p class="font-body text-emerald/80">Submit your birth details (date, time, place) along with your donation ID. This helps us prepare your personalized reading.</p>
+        </div>
+      </div>
+      <div class="flex gap-8">
+        <div class="flex flex-col items-center">
+          <div class="w-14 h-14 bg-golden flex items-center justify-center font-heading font-bold text-emerald text-xl flex-shrink-0">4</div>
+        </div>
+        <div class="pt-3">
+          <h3 class="font-heading text-xl font-semibold text-emerald mb-2">Book Appointment</h3>
+          <p class="font-body text-emerald/80">Schedule your consultation and receive your detailed reading within 24 hours. Your stars await.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- GOOD KARMA / CHARITY -->
+<section id="karma" class="bg-white py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="reveal">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-emerald text-center mb-4">Good Karma</h2>
+      <p class="font-body text-emerald/80 text-center max-w-2xl mx-auto mb-16">Choose a cause close to your heart. Your donation fuels good karma and unlocks your cosmic reading.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 reveal">
+      <div class="bg-white border border-transparent hover:border-golden p-10 transition-all duration-300">
+        <div class="mb-5 text-emerald"><i data-lucide="beef" class="w-9 h-9"></i></div>
+        <h3 class="font-heading text-lg font-semibold text-emerald mb-3">Goshala (Cow Feeding)</h3>
+        <p class="font-body text-emerald/80 text-sm mb-6">Support the sacred tradition of cow care and feeding at local goshalas.</p>
+        <button onclick="openDonationModal('Goshala (Cow Feeding)')" class="w-full bg-golden hover:bg-goldenHover text-emerald font-bold px-6 py-3 transition hover:-translate-y-0.5">Donate &amp; Proceed</button>
+      </div>
+      <div class="bg-white border border-transparent hover:border-golden p-10 transition-all duration-300">
+        <div class="mb-5 text-emerald"><i data-lucide="home" class="w-9 h-9"></i></div>
+        <h3 class="font-heading text-lg font-semibold text-emerald mb-3">Orphanage &amp; Old Age Home</h3>
+        <p class="font-body text-emerald/80 text-sm mb-6">Provide comfort and care to children and elders who need it most.</p>
+        <button onclick="openDonationModal('Orphanage & Old Age Home')" class="w-full bg-golden hover:bg-goldenHover text-emerald font-bold px-6 py-3 transition hover:-translate-y-0.5">Donate &amp; Proceed</button>
+      </div>
+      <div class="bg-white border border-transparent hover:border-golden p-10 transition-all duration-300">
+        <div class="mb-5 text-emerald"><i data-lucide="eye" class="w-9 h-9"></i></div>
+        <h3 class="font-heading text-lg font-semibold text-emerald mb-3">Blind School</h3>
+        <p class="font-body text-emerald/80 text-sm mb-6">Help visually impaired students access education and opportunities.</p>
+        <button onclick="openDonationModal('Blind School')" class="w-full bg-golden hover:bg-goldenHover text-emerald font-bold px-6 py-3 transition hover:-translate-y-0.5">Donate &amp; Proceed</button>
+      </div>
+      <div class="bg-white border border-transparent hover:border-golden p-10 transition-all duration-300">
+        <div class="mb-5 text-emerald"><i data-lucide="accessibility" class="w-9 h-9"></i></div>
+        <h3 class="font-heading text-lg font-semibold text-emerald mb-3">Physically Challenged</h3>
+        <p class="font-body text-emerald/80 text-sm mb-6">Support mobility aids, therapy, and rehabilitation for those with physical disabilities.</p>
+        <button onclick="openDonationModal('Physically Challenged')" class="w-full bg-golden hover:bg-goldenHover text-emerald font-bold px-6 py-3 transition hover:-translate-y-0.5">Donate &amp; Proceed</button>
+      </div>
+      <div class="bg-white border border-transparent hover:border-golden p-10 transition-all duration-300">
+        <div class="mb-5 text-emerald"><i data-lucide="heart-handshake" class="w-9 h-9"></i></div>
+        <h3 class="font-heading text-lg font-semibold text-emerald mb-3">Mentally Challenged</h3>
+        <p class="font-body text-emerald/80 text-sm mb-6">Fund mental health programs and care facilities for individuals with cognitive challenges.</p>
+        <button onclick="openDonationModal('Mentally Challenged')" class="w-full bg-golden hover:bg-goldenHover text-emerald font-bold px-6 py-3 transition hover:-translate-y-0.5">Donate &amp; Proceed</button>
+      </div>
+      <div class="bg-white border border-transparent hover:border-golden p-10 transition-all duration-300">
+        <div class="mb-5 text-emerald"><i data-lucide="users" class="w-9 h-9"></i></div>
+        <h3 class="font-heading text-lg font-semibold text-emerald mb-3">Community Welfare</h3>
+        <p class="font-body text-emerald/80 text-sm mb-6">Contribute to community development, education, and upliftment programs.</p>
+        <button onclick="openDonationModal('Community Welfare')" class="w-full bg-golden hover:bg-goldenHover text-emerald font-bold px-6 py-3 transition hover:-translate-y-0.5">Donate &amp; Proceed</button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- DONATION MODAL -->
+<div id="donation-modal" class="modal-overlay">
+  <div class="bg-white border-2 border-golden p-10 max-w-md w-full mx-4">
+    <h3 class="font-heading text-xl font-semibold text-emerald mb-2">Good Karma Confirmed ☽</h3>
+    <p id="modal-charity-name" class="font-body text-emerald/70 text-sm mb-6"></p>
+    <p class="font-body text-emerald/80 mb-6">After donating, enter your Donation ID below to proceed to booking.</p>
+    <input type="text" id="modal-donation-id" placeholder="Enter your Donation ID" class="w-full border-2 border-golden px-4 py-3 font-body text-emerald focus:outline-none focus:border-emerald mb-6" />
+    <button id="modal-proceed-btn" onclick="proceedToBooking()" class="w-full bg-golden hover:bg-goldenHover text-emerald font-bold px-6 py-3 transition hover:-translate-y-0.5">Proceed to Booking</button>
+    <button onclick="closeDonationModal()" class="w-full mt-3 border border-golden text-emerald font-medium px-6 py-2 transition hover:bg-golden/20 text-sm">Cancel</button>
+  </div>
+</div>
+
+<!-- CONSULTATION FORM (Hidden by default — gated by Good Karma flow) -->
+<section id="consultation-form" style="display:none" class="bg-white py-24">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="reveal">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-emerald text-center mb-4">Book Your Reading</h2>
+      <p class="font-body text-emerald/80 text-center max-w-2xl mx-auto mb-12">Fill in your details after completing your Good Karma donation.</p>
+    </div>
+    <form id="booking-form" class="space-y-6 reveal">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div><label class="block font-body text-emerald font-medium mb-2">Full Name</label><input type="text" name="fullName" required class="w-full border-2 border-golden px-4 py-3 font-body text-emerald focus:outline-none focus:border-emerald" placeholder="Your full name" /></div>
+        <div><label class="block font-body text-emerald font-medium mb-2">Gender</label><select name="gender" required class="w-full border-2 border-golden px-4 py-3 font-body text-emerald focus:outline-none focus:border-emerald bg-white"><option value="">Select gender</option><option value="male">Male</option><option value="female">Female</option><option value="other">Other</option></select></div>
+        <div><label class="block font-body text-emerald font-medium mb-2">Date of Birth</label><input type="date" name="dob" required class="w-full border-2 border-golden px-4 py-3 font-body text-emerald focus:outline-none focus:border-emerald" /></div>
+        <div><label class="block font-body text-emerald font-medium mb-2">Time of Birth</label><input type="time" name="tob" required class="w-full border-2 border-golden px-4 py-3 font-body text-emerald focus:outline-none focus:border-emerald" /></div>
+        <div><label class="block font-body text-emerald font-medium mb-2">Place of Birth</label><input type="text" name="placeOfBirth" required class="w-full border-2 border-golden px-4 py-3 font-body text-emerald focus:outline-none focus:border-emerald" placeholder="City, State" /></div>
+        <div><label class="block font-body text-emerald font-medium mb-2">WhatsApp Number</label><input type="tel" name="whatsapp" required class="w-full border-2 border-golden px-4 py-3 font-body text-emerald focus:outline-none focus:border-emerald" placeholder="+91 9999999999" /></div>
+        <div><label class="block font-body text-emerald font-medium mb-2">Email</label><input type="email" name="email" required class="w-full border-2 border-golden px-4 py-3 font-body text-emerald focus:outline-none focus:border-emerald" placeholder="you@email.com" /></div>
+        <div><label class="block font-body text-emerald font-medium mb-2">Country</label><select name="country" required class="w-full border-2 border-golden px-4 py-3 font-body text-emerald focus:outline-none focus:border-emerald bg-white"><option value="">Select country</option><option value="India">India</option><option value="USA">USA</option><option value="UK">UK</option><option value="Australia">Australia</option><option value="Canada">Canada</option><option value="UAE">UAE</option><option value="Europe">Europe</option><option value="Other">Other</option></select></div>
+        <div><label class="block font-body text-emerald font-medium mb-2">Occupation</label><input type="text" name="occupation" required class="w-full border-2 border-golden px-4 py-3 font-body text-emerald focus:outline-none focus:border-emerald" placeholder="Your occupation" /></div>
+        <div><label class="block font-body text-emerald font-medium mb-2">Donation ID</label><input type="text" name="donationId" id="form-donation-id" required class="w-full border-2 border-golden px-4 py-3 font-body text-emerald focus:outline-none focus:border-emerald bg-golden/10" placeholder="From your donation receipt" readonly /></div>
+      </div>
+      <div class="text-center pt-4">
+        <button type="submit" class="bg-golden hover:bg-goldenHover text-emerald font-bold px-12 py-4 text-lg transition hover:-translate-y-0.5">Submit &amp; Book Appointment</button>
+        <p class="font-body text-emerald/60 text-sm mt-4">One personalized horoscope is prepared per day. Your reading will be delivered within 24 hours.</p>
+      </div>
+    </form>
+  </div>
+</section>
+<!-- TESTIMONIALS -->
+<section id="reviews" class="bg-white py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="reveal">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-emerald text-center mb-6">What Our Clients Say</h2>
+      <p class="font-body text-emerald/80 text-center max-w-2xl mx-auto mb-16">Trusted by hundreds across the globe for accurate Vedic guidance.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10 reveal">
+      <div class="bg-white border border-transparent hover:border-golden p-10 transition-all duration-300">
+        <div class="flex gap-1 mb-5"><i data-lucide="star" class="w-5 h-5 fill-golden text-golden"></i><i data-lucide="star" class="w-5 h-5 fill-golden text-golden"></i><i data-lucide="star" class="w-5 h-5 fill-golden text-golden"></i><i data-lucide="star" class="w-5 h-5 fill-golden text-golden"></i><i data-lucide="star" class="w-5 h-5 fill-golden text-golden"></i></div>
+        <p class="font-body text-emerald/80 mb-8 italic leading-relaxed">"The reading was incredibly accurate. Lakshmi predicted career changes that happened exactly as described. I'm amazed by the depth of insight from Vedic astrology."</p>
+        <div><p class="font-heading font-semibold text-emerald">Sarah J.</p><p class="font-body text-emerald/60 text-sm">London, UK</p></div>
+      </div>
+      <div class="bg-white border border-transparent hover:border-golden p-10 transition-all duration-300">
+        <div class="flex gap-1 mb-5"><i data-lucide="star" class="w-5 h-5 fill-golden text-golden"></i><i data-lucide="star" class="w-5 h-5 fill-golden text-golden"></i><i data-lucide="star" class="w-5 h-5 fill-golden text-golden"></i><i data-lucide="star" class="w-5 h-5 fill-golden text-golden"></i><i data-lucide="star" class="w-5 h-5 fill-golden text-golden"></i></div>
+        <p class="font-body text-emerald/80 mb-8 italic leading-relaxed">"The lucky number consultation changed my perspective on decision-making. My business has flourished since I aligned my choices with my cosmic numbers."</p>
+        <div><p class="font-heading font-semibold text-emerald">Michael R.</p><p class="font-body text-emerald/60 text-sm">New York, US</p></div>
+      </div>
+      <div class="bg-white border border-transparent hover:border-golden p-10 transition-all duration-300">
+        <div class="flex gap-1 mb-5"><i data-lucide="star" class="w-5 h-5 fill-golden text-golden"></i><i data-lucide="star" class="w-5 h-5 fill-golden text-golden"></i><i data-lucide="star" class="w-5 h-5 fill-golden text-golden"></i><i data-lucide="star" class="w-5 h-5 fill-golden text-golden"></i><i data-lucide="star" class="w-5 h-5 fill-golden text-golden"></i></div>
+        <p class="font-body text-emerald/80 mb-8 italic leading-relaxed">"I love the Good Karma approach. Knowing my consultation helps others makes the experience even more meaningful. The numerology reading was spot on."</p>
+        <div><p class="font-heading font-semibold text-emerald">Anita K.</p><p class="font-body text-emerald/60 text-sm">Sydney, AU</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FAQ ACCORDION -->
+<section id="faq" class="bg-white py-24">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="reveal">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-emerald text-center mb-6">Frequently Asked Questions</h2>
+      <p class="font-body text-emerald/80 text-center max-w-2xl mx-auto mb-12">Common questions about our Vedic astrology services.</p>
+    </div>
+    <div class="space-y-4 reveal">
+      <div class="faq-item border border-golden/30 pl-6 pr-6 py-5 cursor-pointer transition-all" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between"><h3 class="font-body font-medium text-emerald pr-4">How accurate are Vedic astrology predictions?</h3><i data-lucide="chevron-down" class="w-5 h-5 text-emerald transition-transform duration-300 faq-icon flex-shrink-0"></i></div>
+        <div class="faq-answer"><p class="font-body text-emerald/70 text-sm pt-4 pb-2">Vedic astrology has been practiced for over 5,000 years and is known for its precision. Accuracy depends on the exactness of birth details provided. Our readings have consistently received positive feedback from clients worldwide for their depth and relevance.</p></div>
+      </div>
+      <div class="faq-item border border-golden/30 pl-6 pr-6 py-5 cursor-pointer transition-all" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between"><h3 class="font-body font-medium text-emerald pr-4">Can I get a consultation from outside India?</h3><i data-lucide="chevron-down" class="w-5 h-5 text-emerald transition-transform duration-300 faq-icon flex-shrink-0"></i></div>
+        <div class="faq-answer"><p class="font-body text-emerald/70 text-sm pt-4 pb-2">Absolutely. We serve clients in over 20 countries including the USA, UK, Australia, Canada, UAE, and Singapore. Consultations are delivered digitally, so location is never a barrier.</p></div>
+      </div>
+      <div class="faq-item border border-golden/30 pl-6 pr-6 py-5 cursor-pointer transition-all" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between"><h3 class="font-body font-medium text-emerald pr-4">Is my information kept private?</h3><i data-lucide="chevron-down" class="w-5 h-5 text-emerald transition-transform duration-300 faq-icon flex-shrink-0"></i></div>
+        <div class="faq-answer"><p class="font-body text-emerald/70 text-sm pt-4 pb-2">Yes, your personal and birth details are kept strictly confidential. We do not share your information with any third parties. Your privacy and trust are our highest priority.</p></div>
+      </div>
+      <div class="faq-item border border-golden/30 pl-6 pr-6 py-5 cursor-pointer transition-all" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between"><h3 class="font-body font-medium text-emerald pr-4">What if I don't know my exact birth time?</h3><i data-lucide="chevron-down" class="w-5 h-5 text-emerald transition-transform duration-300 faq-icon flex-shrink-0"></i></div>
+        <div class="faq-answer"><p class="font-body text-emerald/70 text-sm pt-4 pb-2">While an exact birth time gives the most precise reading, we can still provide valuable insights with an approximate time. We use rectification techniques to narrow down the ascendant and provide meaningful guidance.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- CTA BANNER -->
+<section id="book" class="bg-white py-24">
+  <div class="max-w-4xl mx-auto px-6 text-center reveal">
+    <h2 class="font-heading text-3xl md:text-4xl font-bold text-emerald mb-6">Ready to Discover Your Destiny?</h2>
+    <p class="font-body text-emerald/80 text-lg mb-10 max-w-xl mx-auto">Take the first step toward cosmic clarity. Book your personalized Vedic astrology consultation today.</p>
+    <a href="#karma" class="inline-block bg-golden hover:bg-goldenHover text-emerald font-bold px-12 py-4 text-lg transition hover:-translate-y-0.5">Start with Good Karma</a>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer class="bg-[#1B5E20] py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-12 mb-12">
+      <div>
+        <h3 class="font-heading text-xl font-semibold text-white mb-4">☽ Jyotish by Lakshmi</h3>
+        <p class="font-body text-white/80 text-sm leading-relaxed">Vedic astrology and numerology consultations rooted in ancient wisdom and good karma. Serving seekers worldwide.</p>
+      </div>
+      <div>
+        <h4 class="font-heading text-lg font-semibold text-white mb-4">Quick Links</h4>
+        <ul class="space-y-3">
+          <li><a href="#home" class="font-body text-white/80 hover:text-white transition text-sm">Home</a></li>
+          <li><a href="#services" class="font-body text-white/80 hover:text-white transition text-sm">Services</a></li>
+          <li><a href="#how-it-works" class="font-body text-white/80 hover:text-white transition text-sm">How It Works</a></li>
+          <li><a href="#karma" class="font-body text-white/80 hover:text-white transition text-sm">Good Karma</a></li>
+          <li><a href="#reviews" class="font-body text-white/80 hover:text-white transition text-sm">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-heading text-lg font-semibold text-white mb-4">Contact</h4>
+        <a href="https://wa.me/919999999999" class="inline-flex items-center gap-3 font-body text-white/80 hover:text-white transition text-sm"><i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp Us</a>
+        <p class="font-body text-white/60 text-xs mt-6">Available Mon–Sat, 9 AM – 8 PM IST</p>
+      </div>
+    </div>
+    <div class="border-t border-white/20 pt-8 text-center">
+      <p class="font-body text-white/70 text-sm">&copy; 2026 Jyotish by Lakshmi. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center transition hover:-translate-y-0.5" aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<!-- Scripts -->
+<script>
+// Initialize Lucide icons
+lucide.createIcons();
+
+// PAGE LOAD ANIMATION
+document.addEventListener('DOMContentLoaded', function() {
+  document.body.classList.add('loaded');
+});
+
+// MOBILE MENU TOGGLE
+var menuBtn = document.getElementById('mobile-menu-btn');
+var mobileMenu = document.getElementById('mobile-menu');
+menuBtn.addEventListener('click', function() {
+  mobileMenu.classList.toggle('hidden');
+});
+
+// MOBILE NAV AUTO-CLOSE
+document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+  link.addEventListener('click', function() {
+    mobileMenu.classList.add('hidden');
+  });
+});
+
+// SCROLL REVEAL (IntersectionObserver)
+var revealElements = document.querySelectorAll('.reveal');
+var revealObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+revealElements.forEach(function(el) {
+  revealObserver.observe(el);
+});
+
+// ACTIVE NAV HIGHLIGHTING
+var sections = document.querySelectorAll('section[id]');
+var navLinks = document.querySelectorAll('.nav-link');
+window.addEventListener('scroll', function() {
+  var current = '';
+  sections.forEach(function(section) {
+    var sectionTop = section.offsetTop - 120;
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(function(link) {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// GOOD KARMA -> FORM GATING
+function openDonationModal(charityName) {
+  document.getElementById('modal-charity-name').textContent = 'Charity: ' + charityName;
+  document.getElementById('modal-donation-id').value = '';
+  document.getElementById('donation-modal').classList.add('show');
+}
+
+function closeDonationModal() {
+  document.getElementById('donation-modal').classList.remove('show');
+}
+
+function proceedToBooking() {
+  var donationId = document.getElementById('modal-donation-id').value.trim();
+  if (!donationId) {
+    alert('Please enter your Donation ID to proceed.');
+    return;
+  }
+  closeDonationModal();
+  var formSection = document.getElementById('consultation-form');
+  formSection.style.display = 'block';
+  document.getElementById('form-donation-id').value = donationId;
+  setTimeout(function() {
+    formSection.scrollIntoView({ behavior: 'smooth' });
+    formSection.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  }, 100);
+}
+
+// Close modal on overlay click
+document.getElementById('donation-modal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeDonationModal();
+  }
+});
+
+// FAQ ACCORDION
+function toggleFaq(item) {
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(faq) {
+    faq.classList.remove('open');
+    var icon = faq.querySelector('.faq-icon');
+    if (icon) icon.style.transform = 'rotate(0deg)';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    var icon = item.querySelector('.faq-icon');
+    if (icon) icon.style.transform = 'rotate(180deg)';
+  }
+}
+
+// FORM SUBMISSION
+document.getElementById('booking-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Thank you! Your booking has been submitted. We will contact you within 24 hours.');
+});
+</script>
+</body>
+</html>
